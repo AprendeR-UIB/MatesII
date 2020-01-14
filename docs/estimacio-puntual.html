@@ -266,12 +266,12 @@ Més d’una de cada 3 mostres aleatòries simples de 10 individus d’una pobla
 prob=<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">200</span>,f,<span class="dt">N=</span><span class="dv">1200</span>)
 <span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">200</span>,prob,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;probabilitat&quot;</span>,
      <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">200</span>,<span class="dv">20</span>),<span class="dt">yaxp=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">10</span>))</code></pre>
-<p><img src="Bioestadi%CC%81stica-II_files/figure-html/unnamed-chunk-26-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-26-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>El gràfic següent mostra la mida màxima <em>n</em> d’una mostra aleatòria simple extreta d’una població de mida <em>N</em> per què la probabilitat de repeticions sigui menor que 0.05, en funció de <em>N</em></p>
 <pre class="sourceCode r"><code class="sourceCode r">h=<span class="cf">function</span>(n){<span class="kw">max</span>(<span class="kw">which</span>(<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span>(n<span class="op">/</span><span class="dv">50</span>),f,<span class="dt">N=</span>n)<span class="op">&gt;</span><span class="fl">0.95</span>))}
 fites=<span class="kw">sapply</span>(<span class="dv">500</span><span class="op">+</span><span class="dv">100</span><span class="op">*</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">150</span>),h)
 <span class="kw">plot</span>(<span class="dv">500</span><span class="op">+</span><span class="dv">100</span><span class="op">*</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">150</span>),fites,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">xlab=</span><span class="st">&quot;N&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">500</span>,<span class="dv">15500</span>,<span class="dv">30</span>))</code></pre>
-<p><img src="Bioestadi%CC%81stica-II_files/figure-html/unnamed-chunk-27-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-27-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>A la pràctica, (gairebé) mai no disposarem d’una mostra <em>aleatòria</em>. Ens haurem de conformar amb una <strong>mostra oportunista</strong> (o <strong>de conveniència</strong>}: la que poguem obtenir. Heu de tenir clar que, en principi, <em>els resultats que donarem NO són vàlids en aquest cas</em>, però si no tenim res millor… El que es fa en aquest cas a la pràctica és explicar amb detall com s’ha obtingut la mostra i descriure amb detall les seves característiques, a fi que altres investigadors puguin decidir si els individus “són típics” i podrien passar per una mostra aleatòria, i si poden extrapolar les estimacions al seu context.</p>
 <p>Per exemple, si per saber l’opinió dels estudiants de Biologia espanyols sobre un tema, ho deman als meus estudiants, serà una mostra clarament oportunista i caldrà llavors esbrinar si podria passar per una mostra aleatòria simple a efectes de l’estudi que vull portar a terme.</p>
 
@@ -373,13 +373,13 @@ N\Big(3,\frac{0.2}{\sqrt{100}}\Big)=N(3,0.02)
 <span class="kw">hist</span>(tests,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Notes dels tests&quot;</span>,
      <span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de notes de tests&quot;</span>)
 <span class="kw">curve</span>(fact.trans<span class="op">*</span><span class="kw">dnorm</span>(x,<span class="kw">mean</span>(tests),<span class="kw">sd</span>(tests)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</code></pre>
-<p><img src="Bioestadi%CC%81stica-II_files/figure-html/unnamed-chunk-36-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-36-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>A l’Exemple <a href="estimacio-puntual.html#exm:experimentTCL1">2.4</a> també hem construit un vector anomenat <strong>mitjanes</strong> format per 10<sup>5</sup> mitjanes de mostres aleatòries simples de notes de mida 40. Pel Teorema Central del Límit, aquestes mitjanes mostrals haurien de seguir aproximadament una distribució normal, malgrat que la “població original” (les notes dels tests) no sigui normal. Vegem-ho amb un histograma:</p>
 <pre class="sourceCode r"><code class="sourceCode r">fact.trans.m=<span class="kw">hist</span>(mitjanes,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>counts[<span class="dv">1</span>]<span class="op">/</span><span class="kw">hist</span>(mitjanes,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>density[<span class="dv">1</span>]
 <span class="kw">hist</span>(mitjanes,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Mitjanes&quot;</span>,
      <span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de la mostra de mitjanes&quot;</span>)
 <span class="kw">curve</span>(fact.trans.m<span class="op">*</span><span class="kw">dnorm</span>(x,<span class="kw">mean</span>(mitjanes),<span class="kw">sd</span>(mitjanes)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</code></pre>
-<p><img src="Bioestadi%CC%81stica-II_files/figure-html/unnamed-chunk-37-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-37-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>L’exemple següent és un tipus de pregunta que més endavant ens preocuparà molt.</p>
 
 <div class="example">
@@ -519,7 +519,7 @@ props.mostrals=<span class="kw">replicate</span>(<span class="dv">10</span><span
 <span class="kw">hist</span>(props.mostrals,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Proporcions mostrals&quot;</span>,
      <span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de la mostra de proporcions&quot;</span>)
 <span class="kw">curve</span>(fact.trans.p<span class="op">*</span><span class="kw">dnorm</span>(x,<span class="kw">mean</span>(props.mostrals),<span class="kw">sd</span>(props.mostrals)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</code></pre>
-<p><img src="Bioestadi%CC%81stica-II_files/figure-html/unnamed-chunk-54-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-54-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>I això que la mida de les mostres, 40, no és especialment gran.</p>
 
 <div class="example">
@@ -609,12 +609,12 @@ on <span class="math inline">\(Z_{1},Z_{2},\ldots, Z_{n}\sim N(0,1)\)</span></p>
 <span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">10</span>),<span class="dt">col=</span><span class="dv">6</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),
        <span class="dt">lwd=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">legend=</span><span class="kw">paste</span>(<span class="st">&quot;n=&quot;</span>,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">10</span>),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>),<span class="dt">cex=</span><span class="fl">0.8</span>)</code></pre>
-<p><img src="Bioestadi%CC%81stica-II_files/figure-html/unnamed-chunk-60-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-60-1.png" width="480" style="display: block; margin: auto;" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">300</span>),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">150</span>,<span class="dv">450</span>),<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Khi quadrat vs Normal&quot;</span>)
 <span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="dv">300</span>,<span class="kw">sqrt</span>(<span class="dv">600</span>)),<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),
        <span class="dt">lwd=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Khi quadrat amb n=300&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadi%CC%81stica-II_files/figure-html/unnamed-chunk-61-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-61-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Tornem un instant a això dels <em>graus de llibertat</em>.
 Per què diem que la variància (mostral) té <span class="math inline">\(n-1\)</span> graus de llibertat? Doncs perquè si volem construir un conjunt de <span class="math inline">\(n\)</span> nombres <span class="math inline">\(x_1,\ldots,x_n\)</span> que tenguin variància un valor donat, posem <span class="math inline">\(y_0\)</span>, aleshores podem escollir <span class="math inline">\(n-1\)</span> d’ells, diguem <span class="math inline">\(x_1,\ldots,x_{n-1}\)</span> com volguem i aleshores el darrer, <span class="math inline">\(x_n\)</span>, queda bastant fixat. En matemàtiques això se sol expressar dien que “tenim <span class="math inline">\(n-1\)</span> graus de llibertat a l’hora d’escollir <span class="math inline">\(x_1,\ldots,x_n\)</span>.”</p>
 
@@ -673,13 +673,13 @@ P(T_{\nu}\leqslant-x)=P(T_{\nu}\geqslant x)=1-P(T_{\nu}\leqslant x)
 <span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">10</span>),<span class="dt">col=</span><span class="dv">6</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,<span class="dt">lty=</span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">6</span>), <span class="dt">lwd=</span><span class="kw">rep</span>(<span class="dv">2</span>,<span class="dv">6</span>),
 <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Normal estàndard&quot;</span>, <span class="kw">paste</span>(<span class="st">&quot;Student amb g.l.=&quot;</span>,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">10</span>),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadi%CC%81stica-II_files/figure-html/unnamed-chunk-64-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-64-1.png" width="480" style="display: block; margin: auto;" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span>),
       <span class="dt">main=</span><span class="st">&quot;t vs Normal estàndard&quot;</span>)
 <span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">50</span>),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">lwd=</span><span class="kw">rep</span>(<span class="dv">2</span>,<span class="dv">2</span>),
        <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Normal estàndard&quot;</span>, <span class="st">&quot;Student amb g.l.=50&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadi%CC%81stica-II_files/figure-html/unnamed-chunk-65-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-65-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Indicarem amb <span class="math inline">\(t_{\nu,q}\)</span> el <span class="math inline">\(q\)</span>-quantil d’una variable aleatòria <span class="math inline">\(T_{\nu}\)</span> que segueix una distribució <span class="math inline">\(t_\nu\)</span>. És a dir, <span class="math inline">\(t_{\nu,q}\)</span> és el valor tal que
 <span class="math display">\[
 P(T_{\nu}\leqslant t_{\nu,q})=q
@@ -688,7 +688,7 @@ Per la simetria de la distribució <span class="math inline">\(t_\nu\)</span>,
 <span class="math display">\[
 t_{\nu,q}=-t_{\nu,1-q}.
 \]</span></p>
-<p><img src="Bioestadi%CC%81stica-II_files/figure-html/quantilt.png" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/quantilt.png" style="display: block; margin: auto;" /></p>
 <p>Hi ha algunes propietats dels quantils de la t de Student que heu de saber:</p>
 <ul>
 <li><p><span class="math inline">\(t_{\nu ,q}\approx z_{q}\)</span> si <span class="math inline">\(\nu\)</span> és molt gran, posem <span class="math inline">\(\nu \geqslant 200\)</span></p></li>
@@ -873,7 +873,7 @@ Per tant, estimam que hi haurà entre 37 i 38 peixos al llac.</p>
 <pre class="sourceCode r"><code class="sourceCode r">N=<span class="dv">15</span><span class="op">:</span><span class="dv">100</span>
 p=<span class="kw">dhyper</span>(<span class="dv">4</span>,<span class="dv">15</span>,N<span class="dv">-15</span>,<span class="dv">10</span>)
 <span class="kw">plot</span>(N,p,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">100</span>,<span class="dv">17</span>))</code></pre>
-<p><img src="Bioestadi%CC%81stica-II_files/figure-html/unnamed-chunk-75-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-75-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>I la <em>N</em> que fa màxima la probabilitat que en una mostra de 10 peixos del nostre llac n’hi hagi 4 de marcats és</p>
 <pre class="sourceCode r"><code class="sourceCode r">N[<span class="kw">which</span>(p<span class="op">==</span><span class="kw">max</span>(p))]</code></pre>
 <pre><code>## [1] 37</code></pre>
@@ -940,7 +940,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Bioestadística-II.pdf", "Bioestadística-II.epub"],
+"download": ["Bioestadistica-II.pdf", "Bioestadistica-II.epub"],
 "toc": {
 "collapse": "subsection"
 }
