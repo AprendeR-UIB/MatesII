@@ -25,7 +25,7 @@
 <meta name="author" content="The Matemàtiques II team">
 
 
-<meta name="date" content="2020-01-16">
+<meta name="date" content="2020-01-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -174,6 +174,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="intervals-de-confianca.html"><a href="intervals-de-confianca.html#intervals-de-confianca-per-a-la-variancia-duna-variable-normal"><i class="fa fa-check"></i><b>2.5</b> Intervals de confiança per a la variància d’una variable normal</a></li>
 <li class="chapter" data-level="2.6" data-path="intervals-de-confianca.html"><a href="intervals-de-confianca.html#poblacions-finites"><i class="fa fa-check"></i><b>2.6</b> “Poblacions finites”</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html"><i class="fa fa-check"></i><b>3</b> Contrastos d’hipòtesis: Generalitats</a><ul>
+<li class="chapter" data-level="3.1" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#hipotesis-nulla-i-alternativa"><i class="fa fa-check"></i><b>3.1</b> Hipòtesis nul·la i alternativa</a></li>
+<li class="chapter" data-level="3.2" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#un-exemple"><i class="fa fa-check"></i><b>3.2</b> Un exemple</a></li>
+<li class="chapter" data-level="3.3" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#sec:pval"><i class="fa fa-check"></i><b>3.3</b> El p-valor</a></li>
+<li class="chapter" data-level="3.4" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#tipus-derrors"><i class="fa fa-check"></i><b>3.4</b> Tipus d’errors</a></li>
+<li class="chapter" data-level="3.5" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#sec:exttest"><i class="fa fa-check"></i><b>3.5</b> Exemple: El test t</a></li>
+<li class="chapter" data-level="3.6" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#recapitulacio"><i class="fa fa-check"></i><b>3.6</b> Recapitulació</a><ul>
+<li class="chapter" data-level="" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#interval-de-confianca-dun-contrast"><i class="fa fa-check"></i>Interval de confiança d’un contrast</a></li>
+<li class="chapter" data-level="" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#la-potencia"><i class="fa fa-check"></i>La potència</a></li>
+<li class="chapter" data-level="" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#el-risc-de-falsos-positius"><i class="fa fa-check"></i>El risc de falsos positius</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/cescrossello/Mates-II" target="blank">Publicat amb  bookdown</a></li>
 
@@ -227,6 +239,7 @@ Moltes variables aleatòries que consisteixen a prendre <span class="math inline
 <li>Si <span class="math inline">\(X\)</span> és una variable aleatòria de Poisson <span class="math inline">\(Po(\lambda)\)</span> i <span class="math inline">\(\lambda\)</span> és gran, aleshores <span class="math inline">\(X\)</span> és aproximadament <span class="math inline">\(N(\lambda,\sqrt{\lambda})\)</span></li>
 </ul>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Una de les propietats principals de la distribució normal és la seva simetria:</p>
 
 <div class="rmdimportant">
 Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, la seva densitat <span class="math inline">\(f_X\)</span> és simètrica respecte de <span class="math inline">\(x=\mu\)</span>, és a dir,
@@ -244,13 +257,17 @@ Recordem que no té sentit definir la moda d’una variable contínua <span clas
 </div>
 
 <p>En particular, si <span class="math inline">\(Z\sim N(0,1)\)</span>, llavors <span class="math inline">\(f_{Z}\)</span> és simètrica al voltant de <span class="math inline">\(x=0\)</span>, és a dir, <span class="math inline">\(f_{Z}(-x)=f_{Z}(x)\)</span>, i la moda de <span class="math inline">\(Z\)</span> és 0.</p>
-<p>Si la <span class="math inline">\(\mu\)</span> creix, el màxim es desplaça a la dreta, i amb ell tota la corba.</p>
+<p>Si la <span class="math inline">\(\mu\)</span> creix, el màxim es desplaça a la dreta, i amb ell tota la corba de manera rígida.</p>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-12-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>Si la <span class="math inline">\(\sigma\)</span> creix, la corba s’aplata: en augmentar la desviació típica, els valors s’allunyen més del valor mitjà.</p>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-13-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>Vegem l’efecte combinat:</p>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-14-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p>Recordem que la funció de distribució <span class="math inline">\(F_X(x)=P(X\leqslant x)\)</span> és l’àrea compresa entre la corba definida per la densitat <span class="math inline">\(y=f_X(x)\)</span> i l’eix d’abscisses a l’esquerra de <span class="math inline">\(x\)</span>.</p>
+<p>Recordem que la funció de distribució d’una variable aleatòria contínua <span class="math inline">\(X\)</span>
+<span class="math display">\[
+F_X(x)=P(X\leqslant x)
+\]</span>
+és l’àrea compresa entre la corba definida per la densitat <span class="math inline">\(y=f_X(x)\)</span> i l’eix d’abscisses a l’esquerra de <span class="math inline">\(x\)</span>.</p>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-15-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>La simetria de <span class="math inline">\(f_X\)</span> fa que les àrees a l’esquerra de <span class="math inline">\(\mu-x\)</span> i a la dreta de <span class="math inline">\(\mu+x\)</span> siguin iguals.</p>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-16-1.png" width="768" style="display: block; margin: auto;" /></p>
@@ -262,10 +279,10 @@ En particular (prenent <span class="math inline">\(x=0\)</span>)
 <span class="math display">\[
 P(X\leqslant\mu)=1-P(X\leqslant\mu)\Rightarrow P(X\leqslant\mu)=0.5,
 \]</span>
-i per tant:</p>
+i per tant <span class="math inline">\(\mu\)</span> és també la <em>mediana</em> de <span class="math inline">\(X\)</span>.</p>
 
 <div class="rmdimportant">
-Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, <span class="math inline">\(\mu\)</span> és també la <em>mediana</em> de <span class="math inline">\(X\)</span>.
+Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, <span class="math inline">\(\mu\)</span> és la moda, la mitjana, o esperança, i la mediana de <span class="math inline">\(X\)</span>.
 </div>
 
 <p>En particular, si <span class="math inline">\(Z\sim N(0,1)\)</span>, les àrees a l’esquerra de <span class="math inline">\(-z\)</span> i a la dreta de <span class="math inline">\(z\)</span> són iguals,
@@ -274,14 +291,14 @@ P(Z\leqslant-z)=P(Z\geqslant z)=1-P(Z\leqslant z),
 \]</span>
 i per tant, la mediana de <span class="math inline">\(Z\)</span> és 0.</p>
 <p>Indicarem amb <span class="math inline">\(z_q\)</span> el <span class="math inline">\(q\)</span><strong>-quantil</strong> d’una variable normal estàndard <span class="math inline">\(Z\)</span>. És a dir, <span class="math inline">\(z_q\)</span> és el valor tal que <span class="math inline">\(P(Z\leqslant z_q)=q\)</span>.</p>
-
-<div class="rmdimportant">
-<p>A banda del fet que <span class="math inline">\(z_{0.5}=0\)</span> (la mediana de <span class="math inline">\(Z\)</span> és 0), hi ha dos quantils més de la normal estándard que heu de saber:</p>
+<p>A banda del fet que <span class="math inline">\(z_{0.5}=0\)</span> (la mediana de <span class="math inline">\(Z\)</span> és 0), hi ha dos quantils més de la normal estándard que heu de saber “de memòria”:</p>
 <ul>
 <li><p><span class="math inline">\(z_{0.95}=1.64\)</span>, és a dir, <span class="math inline">\(P(Z&lt;-1.64)=P(Z&gt;1.64)=0.05\)</span>.</p></li>
 <li><p><span class="math inline">\(z_{0.975}=1.96\)</span>, és a dir, <span class="math inline">\(P(Z&lt;-1.96)=P(Z&gt;1.96)=0.025\)</span></p></li>
 </ul>
-<p>Molt sovint el valor 1.96 de <span class="math inline">\(z_{0.975}\)</span> s’aproxima per 2.</p>
+
+<div class="rmdnote">
+Molt sovint el valor 1.96 de <span class="math inline">\(z_{0.975}\)</span> s’aproxima per 2. Teniu permís per fer-ho quan no disposeu de mitjans (R, aplis de mòbil) per calcular quantils.
 </div>
 
 </div>
@@ -303,9 +320,9 @@ Per tant, si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="fl">0.5</span>)</code></pre>
 <pre><code>## [1] 0.02275013</code></pre>
 <ul>
-<li>Si <span class="math inline">\(X\sim N(0,1)\)</span>, què val <span class="math inline">\(P(-1\leqslant X\leqslant 1)\)</span>?</li>
+<li><p>Si <span class="math inline">\(X\sim N(0,1)\)</span>, què val <span class="math inline">\(P(-1\leqslant X\leqslant 1)\)</span>?</p>
+<p>Com que <span class="math inline">\(P(-1\leqslant X\leqslant 1)=P(X\leqslant 1)-P(X\leqslant-1)\)</span>,</p></li>
 </ul>
-<p>Com que <span class="math inline">\(P(-1\leqslant X\leqslant 1)=P(X\leqslant 1)-P(X\leqslant-1)\)</span>,</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dv">1</span>)<span class="op">-</span><span class="kw">pnorm</span>(<span class="op">-</span><span class="dv">1</span>)</code></pre>
 <pre><code>## [1] 0.6826895</code></pre>
 <ul>
@@ -319,14 +336,25 @@ Per tant, si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>:</p>
 <p>El resultat següent descriu el comportament de l’esperança <span class="math inline">\(E\)</span> i la variància <span class="math inline">\(\sigma^2\)</span> d’una combinació lineal de variables aleatòries:</p>
 
 <div class="theorem">
-<p><span id="thm:combvar" class="theorem"><strong>Teorema .  </strong></span>Siguin <span class="math inline">\(Y_1,\ldots,Y_n\)</span> variables aleatòries, <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>, i <span class="math inline">\(Y=Y=a_1Y_1+\cdots+a_nY_n+b\)</span>. Aleshores</p>
+<p><span id="thm:combvar" class="theorem"><strong>Teorema .  </strong></span>Siguin <span class="math inline">\(Y_1,\ldots,Y_n\)</span> variables aleatòries, <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>, i <span class="math inline">\(Y\)</span> la variable aleatòria
+<span class="math display">\[
+Y=a_1Y_1+\cdots+a_nY_n+b.
+\]</span>
+Aleshores</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(E(Y)=a_1E(Y_1)+\cdots+a_nE(Y_n)+b\)</span>.</p></li>
-<li>Si <span class="math inline">\(Y_1,\ldots,Y_n\)</span> són <strong>independents</strong>, aleshores <span class="math inline">\(\sigma_Y^2=a_1^2\sigma_1^2+\cdots+a_n^2\sigma_n^2\)</span> i per tant <span class="math inline">\(\sigma_Y=\sqrt{a_1^2\sigma_1^2+\cdots+a_n^2\sigma_n^2}\)</span>.</li>
+<li>Si <span class="math inline">\(Y_1,\ldots,Y_n\)</span> són <strong>independents</strong>, aleshores
+<span class="math display">\[
+  \sigma_Y^2=a_1^2\sigma_1^2+\cdots+a_n^2\sigma_n^2
+\]</span>
+i per tant
+<span class="math display">\[
+  \sigma_Y=\sqrt{a_1^2\sigma_1^2+\cdots+a_n^2\sigma_n^2}.
+\]</span></li>
 </ol>
 </div>
 
-<p>Una combinació lineal de variables aleatòries normals independents torna a ser normal:</p>
+<p>Una altra propietat destacada de la distribució normal és que tota combinació lineal de variables aleatòries normals independents torna a ser normal:</p>
 
 <div class="theorem">
 <p><span id="thm:combnormal" class="theorem"><strong>Teorema .  </strong></span>Si <span class="math inline">\(Y_1,\ldots,Y_n\)</span> son variables aleatòries normals independents, cada <span class="math inline">\(Y_i\sim N(\mu_i,\sigma_i)\)</span>, i <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>, aleshores
@@ -359,11 +387,11 @@ P(a\leqslant X\leqslant b) &amp; \displaystyle  =P\Big( \frac{a-\mu}{\sigma}\leq
 </div>
 <div id="intervals-de-referencia" class="section level2">
 <h2><span class="header-section-number">0.4</span> Intervals de referència</h2>
-<p>Un <strong>interval de referència del</strong> <em>q%</em> per a una variable aleatòria <span class="math inline">\(X\)</span> és un interval <span class="math inline">\([a,b]\)</span> tal que
+<p>Un <strong>interval de referència del q%</strong> per a una variable aleatòria <span class="math inline">\(X\)</span> és un interval <span class="math inline">\([a,b]\)</span> tal que
 <span class="math display">\[
 P(a\leqslant X\leqslant b)=\frac{q}{100}.
 \]</span>
-És a dir, un interval de referència del <em>q%</em> per a <span class="math inline">\(X\)</span> és un interval que conté els valors de <span class="math inline">\(X\)</span> del <em>q%</em> de subjectes de la població on està definida.</p>
+És a dir, un interval de referència del q% per a <span class="math inline">\(X\)</span> és un interval que conté els valors de <span class="math inline">\(X\)</span> del q% de subjectes de la població on està definida.</p>
 <p>Els més comuns són els intervals de referència del 95%, que satisfan que
 <span class="math display">\[
 P(a\leqslant X\leqslant b)=0.95
@@ -371,14 +399,17 @@ P(a\leqslant X\leqslant b)=0.95
 i són els, que per exemple, us donen com a valors de referència a les analítiques:</p>
 <p><img src="Bioestadistica-II_files/figure-html/analit.png" style="display: block; margin: auto;" /></p>
 <p>Quan es parla d’un <strong>interval de referència</strong> sense donar-ne la probabilitat, se sobreentén sempre que és l’interval de referència del 95%.</p>
-<p>Quan <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, aquests intervals de referència es prenen <em>sempre centrats en la mitjana</em> <span class="math inline">\(\mu\)</span>, és a dir, de la forma <span class="math inline">\((\mu-x,\mu+x)\)</span>. Per calcular-los fàcilment, podem emprar el resultat següent:</p>
+<p>Quan <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, aquests intervals de referència es prenen <em>sempre centrats en la mitjana</em> <span class="math inline">\(\mu\)</span>, és a dir, de la forma <span class="math inline">\([\mu-x,\mu+x]\)</span>. Per calcular-los fàcilment, podem emprar el resultat següent:</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-25" class="theorem"><strong>Teorema .  </strong></span>Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>,
+<p><span id="thm:unnamed-chunk-25" class="theorem"><strong>Teorema .  </strong></span>Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, un interval de referència del 100q% és
 <span class="math display">\[
-P\big(\mu- z_{(1+q)/2}\cdot \sigma\leqslant X\leqslant\mu+ z_{(1+q)/2}\cdot \sigma\big)=q
+[\mu- z_{(1+q)/2}\cdot \sigma, \mu+ z_{(1+q)/2}\cdot \sigma]
 \]</span>
-on, recordau, <span class="math inline">\(z_{(1+q)/2}\)</span> indica el <span class="math inline">\((1+q)/2\)</span>-quantil de <span class="math inline">\(Z\sim N(0,1)\)</span>.</p>
+on, recordau, <span class="math inline">\(z_{(1+q)/2}\)</span> indica el <span class="math inline">\((1+q)/2\)</span>-quantil de <span class="math inline">\(Z\sim N(0,1)\)</span>. L’escriurem
+<span class="math display">\[
+\mu\pm z_{(1+q)/2}\cdot \sigma.
+\]</span></p>
 </div>
 
 
@@ -405,7 +436,11 @@ z_{(1+q)/2}\\
 <span class="math display">\[
 \mu\pm 1.96\sigma
 \]</span>
-o simplement <span class="math inline">\(\mu\pm 2\sigma\)</span>, per simplificar. Això diu, bàsicament, que</p>
+o simplement, per simplificar,
+<span class="math display">\[
+\mu\pm 2\sigma.
+\]</span>
+Això diu, bàsicament, que</p>
 <blockquote>
 <p>si una població segueix una distribució normal <span class="math inline">\(N(\mu,\sigma)\)</span>, un 95% dels seus individus estan a distància como a màxim <span class="math inline">\(2\sigma\)</span> (“a dues sigmes”) de <span class="math inline">\(\mu\)</span>.</p>
 </blockquote>
@@ -418,7 +453,7 @@ o simplement <span class="math inline">\(\mu\pm 2\sigma\)</span>, per simplifica
 <pre class="sourceCode r"><code class="sourceCode r"><span class="fl">163.1</span><span class="op">+</span><span class="kw">qnorm</span>(<span class="fl">0.75</span>)<span class="op">*</span><span class="fl">18.53</span><span class="op">*</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</code></pre>
 <pre><code>## [1] 150.6017 175.5983</code></pre>
 <p>Arrodonint a cm, és l’interval [151, 176]. Per tant, la meitat de les dones europees de 18 anys fan entre
-1.51 m i 1.76 m.</p>
+1.51 m i 1.76 m d’alçada.</p>
 
 <div class="example">
 <p><span id="exm:unnamed-chunk-29" class="example"><strong>Exemple .  </strong></span>Quin és l’interval de referència per a les alçades de les dones europees de 18 anys?</p>
@@ -427,10 +462,6 @@ o simplement <span class="math inline">\(\mu\pm 2\sigma\)</span>, per simplifica
 <p>Com que sobreentenem que es tracta de l’interval de referència del 95%, és
 <span class="math display">\[
 163.1\pm 1.96\times 18.53\Longrightarrow [127, 199]
-\]</span>
-o, aproximant l’1.96 per 2,
-<span class="math display">\[
-163.1\pm 2\times 18.53\Longrightarrow [126, 200].
 \]</span></p>
 </div>
 <div id="el-z-score" class="section level2">
@@ -439,7 +470,7 @@ o, aproximant l’1.96 per 2,
 <span class="math display">\[
 \frac{x_0-\mu}{\sigma}.
 \]</span>
-Com més gran és en valor absolut, més “rar” és <span class="math inline">\(x_0\)</span>; el signe ens diu si està per damunt o per davall del valor esperat <span class="math inline">\(\mu\)</span>.</p>
+Com més gran és en valor absolut, més “rar” és <span class="math inline">\(x_0\)</span>; el signe ens diu si és més gran o més petit que el valor esperat <span class="math inline">\(\mu\)</span>.</p>
 
 <div class="example">
 <span id="exm:unnamed-chunk-30" class="example"><strong>Exemple .  </strong></span>Recordau que, segons l’OMS, les altures de les dones europees de 18 anys segueixen una llei <span class="math inline">\(N(163.1,18.53)\)</span>. Quin és el z-score d’una jugadora de bàsket de 18 anys que faci 191 cm?
