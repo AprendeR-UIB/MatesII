@@ -1130,7 +1130,7 @@ Per aquest motiu a aquest contrast se li diu un <strong>test F</strong>.</p>
 <ul>
 <li><p>Els graus de llibertat <span class="math inline">\(n,m\)</span> són els paràmetres dels quals depèn la funció de distribució, i l’ordre és important: si <span class="math inline">\(n\neq m\)</span>, la distribució <span class="math inline">\(F_{n,m}\)</span> i la distribució <span class="math inline">\(F_{m,n}\)</span> són diferents.</p></li>
 <li><p>Amb R és <code>f</code></p></li>
-<li><p>No és simètrica, i per tant els p-valors dels contrastos bilaterals es calculen com en el cas de la <span class="math inline">\(\chi^2\)</span>.</p></li>
+<li><p>No és simètrica, i per tant els p-valors dels contrastos bilaterals es calculen com al test <span class="math inline">\(\chi^2\)</span> d’una variància.</p></li>
 </ul>
 <p>El test F està implementat en la funció <code>var.test</code> de R: s’aplica a les dues mostres, amb sintaxi similar a la de <code>t.test</code>.</p>
 
@@ -1155,16 +1155,17 @@ F=\widetilde{S}_h^2/\widetilde{S}_d^2
 <li><em>Valor de l’estadístic de contrast</em> a la nostra mostra, <span class="math inline">\(F_0\)</span>:</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r">F0=<span class="kw">var</span>(X_d)<span class="op">/</span><span class="kw">var</span>(X_h)
-F0</code></pre>
-<pre><code>## [1] 0.8321984</code></pre>
+<span class="kw">round</span>(F0,<span class="dv">4</span>)</code></pre>
+<pre><code>## [1] 0.8322</code></pre>
 <p>Recordem que les mides de les nostres mostres eren <span class="math inline">\(n_d=116\)</span> i <span class="math inline">\(n_h=114\)</span></p>
 <p><em>p-valor</em>:
 <span class="math display">\[
 \begin{array}{l}
-2\min\big\{P(F_{n_d-1,n_h-1} \geqslant F0), P(F_{n_d-1,n_h-1}\leqslant F0)\big\}\\
-\qquad =2\min\big\{P(F_{115,113} \geqslant 0.8321984), P(F_{115,113} \leqslant 0.8321984)\big\}\\
-\qquad =2\min\{0.836,0.164}=
-0.328`
+2\min\big\{P(F_{n_d-1,n_h-1} \geqslant F0), P(F_{n_d-1,n_h-1}\leqslant F_0)\big\}\\
+\qquad =2\min\big\{P(F_{115,113} \geqslant 0.8322), P(F_{115,113} \leqslant 0.8322)\big\}\\
+\qquad =2\min\{\texttt{1-pf(0.8322,115,113)},\texttt{pf(0.8322,115,113)}\} \\
+\qquad =2\min\{0.836,0.164\}=
+0.328
 \end{array}
 \]</span></p>
 <p><em>Conclusió</em>: No hem trobat evidència estadísticament significativa que les variables <span class="math inline">\(X_h\)</span> i <span class="math inline">\(X_d\)</span> tenguin variància diferent (test F, p-valor 0.33). Acceptarem que tenen la mateixa variància.</p>
@@ -1184,32 +1185,37 @@ F0</code></pre>
 <p>Obtenim el mateix p-valor que abans. L’interval de confiança que dóna aquesta funció és <em>per al quocient de les variàncies</em>. Aleshores, com que l’IC 95% conté l’1, no podem rebutjar amb un nivell de significació del 5% que <span class="math inline">\(\sigma_d^2/\sigma_h^2=1\)</span>, és a dir, que <span class="math inline">\(\sigma_d^2=\sigma_h^2\)</span>. És a dir:</p>
 <p><em>Conclusió</em>: No hem trobat evidència estadísticament significativa que les variables <span class="math inline">\(X_h\)</span> i <span class="math inline">\(X_d\)</span> tenguin variància diferent (test F, p-valor 0.33, IC 95% per al quocient de les variàncies de 0.83 a 1.74). Acceptarem que tenen la mateixa variància.</p>
 <p>Per tant, si els tests t amb <code>var.equal=TRUE</code> i <code>var.equal=FALSE</code> de l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:temphomesdones">4.3</a> haguessin donat conclusions diferents, prendríem la corresponent a variàncies iguals.</p>
-<p>Hem emprat un test F per comparar aquestes variàncies, i per que la conclusió sigui fiable, cal que les variables poblacionals siguin normals, no és suficient que les mostres siguin grans (de fet, la seva validesa no depèn per res de la mida de les mostres). Podem suposar que efectivament les variables <span class="math inline">\(X_d\)</span> i <span class="math inline">\(X_h\)</span> són normals?</p>
+<p>Hem emprat un test F per comparar aquestes variàncies, i per que la conclusió sigui fiable, cal que les variables poblacionals siguin normals, no és suficient que les mostres siguin grans; de fet, la seva validesa no depèn per res de la mida de les mostres. Podem suposar que efectivament les variables <span class="math inline">\(X_d\)</span> i <span class="math inline">\(X_h\)</span> són normals?</p>
 <p>Vegem els histogrames:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
-<span class="kw">hist</span>(X_d,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Temperatures&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de temperatures de dones&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(X_d,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Temperatures&quot;</span>,
+     <span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de temperatures de dones&quot;</span>)
 <span class="kw">lines</span>(<span class="kw">density</span>(X_d),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
 <span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(X_d),<span class="kw">sd</span>(X_d)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)
-<span class="kw">hist</span>(X_h,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Temperatures&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de temperatures d&#39;homes&quot;</span>)
+<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),
+       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)
+<span class="co">#</span>
+<span class="kw">hist</span>(X_h,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Temperatures&quot;</span>,
+     <span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de temperatures d&#39;homes&quot;</span>)
 <span class="kw">lines</span>(<span class="kw">density</span>(X_h),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
 <span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(X_h),<span class="kw">sd</span>(X_h)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-253-1.png" width="768" style="display: block; margin: auto;" /></p>
+<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),
+       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</code></pre>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-254-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>i els normal-plot:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
-car<span class="op">::</span><span class="kw">qqPlot</span>(X_d, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(X_d), <span class="dt">sd=</span><span class="kw">sd</span>(X_d),
-        <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra de dones&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)
-car<span class="op">::</span><span class="kw">qqPlot</span>(X_h, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(X_h), <span class="dt">sd=</span><span class="kw">sd</span>(X_h),
-        <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra d&#39;homes&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-254-1.png" width="768" style="display: block; margin: auto;" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(X_d, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(X_d), <span class="dt">sd=</span><span class="kw">sd</span>(X_d),
+       <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra de dones&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
+       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)
+<span class="kw">qqPlot</span>(X_h, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(X_h), <span class="dt">sd=</span><span class="kw">sd</span>(X_h),
+       <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra d&#39;homes&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
+       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-256-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>Seria millor haver emprat un test no paramètric, per més seguretat.</p>
 </div>
 <div id="tests-no-parametrics-1" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> Tests no paramètrics</h3>
 <p>Quan alguna de les variables poblacionals involucrades en un test de dues variàncies no és normal, no es pot fer servir el test F.</p>
 <p>En aquest cas, us recomanam emprar el <strong>test de Fligner-Killeen</strong>, implementat en R en la funció <code>fligner.test</code>, que en la pràctica ha mostrat ser més exacte per a variables aleatòries molt diferents de normals.
-Aquest test només serveix per a contrastos bilaterals, que en realitat són els únics interessants, i està implementat en la funció <code>fligner.test</code> de R.</p>
+Aquest test només serveix per a contrastos bilaterals, que en realitat són els únics interessants, i està implementat en la funció <code>fligner.test</code> de R. S’aplica a una <code>list</code> formada per les dues mostres o a una fórmula que separi una variable numèrica en dos grups.</p>
 <p>Per exemple, per emprar-lo en el contrast bilateral de variàncies de l’exemple anterior, entraríem:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fligner.test</span>(<span class="kw">list</span>(X_h,X_d))</code></pre>
 <pre><code>## 
@@ -1217,14 +1223,14 @@ Aquest test només serveix per a contrastos bilaterals, que en realitat són els
 ## 
 ## data:  list(X_h, X_d)
 ## Fligner-Killeen:med chi-squared = 1.7736, df = 1, p-value = 0.1829</code></pre>
-<p>I seguim acceptant que <span class="math inline">\(X_h\)</span> i <span class="math inline">\(X_d\)</span> tenen la mateixa variància.</p>
+<p>Seguim acceptant que <span class="math inline">\(X_h\)</span> i <span class="math inline">\(X_d\)</span> tenen la mateixa variància.</p>
 </div>
 </div>
 <div id="contrastos-per-a-proporcions" class="section level2">
 <h2><span class="header-section-number">4.3</span> Contrastos per a proporcions</h2>
 <div id="contrastos-per-a-una-proporcio" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Contrastos per a una proporció</h3>
-<p>Suposem que la variable poblacional <span class="math inline">\(X\)</span> és Bernoulli de probabilitat d’èxit <span class="math inline">\(p\)</span>, i que volem realitzar un contrast
+<p>Suposem que la variable poblacional <span class="math inline">\(X\)</span> és Bernoulli de probabilitat d’èxit <span class="math inline">\(p\)</span> i que volem realitzar un contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:p=p_{0}\\
@@ -1232,16 +1238,25 @@ H_{1}:p\neq p_{0}\text{ o }  p&gt;p_0 \text{ o } p&lt;p_0
 \end{array}
 \right.
 \]</span></p>
-<p>Tenim dues opcions: realitzar un test binomial exacte, que és el que explicàvem a la Secció <a href="contrastos-dhipotesis-generalitats.html#sec:moneda">3.2</a>, o un test aproximat basat en l’aproximació d’una distribució binomial per una normal.</p>
+<p>Tenim dues opcions:</p>
+<ul>
+<li>Realitzar un test binomial exacte, que és el que explicàvem a la Secció <a href="contrastos-dhipotesis-generalitats.html#sec:moneda">3.2</a></li>
+<li>Realitzar un test aproximat basat en l’aproximació d’una distribució binomial per una normal, i que per tant només podem emprar si la mostra és gran</li>
+</ul>
 <div id="test-binomial-exacte" class="section level4 unnumbered">
 <h4>Test binomial exacte</h4>
 <p>Suposem que prenem una mostra aleatòria simple de <span class="math inline">\(X\)</span> de mida <span class="math inline">\(n\)</span> qualsevol i que hi obtenim <span class="math inline">\(x_0\)</span> èxits, de manera que <span class="math inline">\(\widehat{p}_X=x_0/n\)</span>.</p>
-<p>Si <span class="math inline">\(H_0\)</span> és vertadera, el nombre d’èxits en una mostra aleatòria simple segueix una distribució <span class="math inline">\(B(n,p_0)\)</span>. Ho podem usar per calcular p-valors de la manera usual:</p>
+<p>Si <span class="math inline">\(H_0\)</span> és vertadera, el nombre d’èxits <span class="math inline">\(S\)</span> en una mostra aleatòria simple segueix una distribució <span class="math inline">\(B(n,p_0)\)</span>. Ho podem usar per calcular p-valors de la manera usual:</p>
 <ul>
-<li><p>Si <span class="math inline">\(H_{1}:p&gt;p_{0}\)</span>, el p-valor és <span class="math inline">\(P(B(n,p_0)\geqslant x_0)\)</span></p></li>
-<li><p>Si <span class="math inline">\(H_{1}:p&lt;p_{0}\)</span>, el p-valor és <span class="math inline">\(P(B(n,p_0)\leqslant x_0)\)</span></p></li>
-<li><p>Si <span class="math inline">\(H_{1}:p\neq p_{0}\)</span>, el p-valor és <span class="math inline">\(2\min\{P(B(n,p_0)\leqslant x_0),P(B(n,p_0)\geqslant x_0)\}\)</span></p></li>
+<li><p>Si <span class="math inline">\(H_{1}:p&gt;p_{0}\)</span>, el p-valor és <span class="math inline">\(P(S\geqslant x_0)\)</span></p></li>
+<li><p>Si <span class="math inline">\(H_{1}:p&lt;p_{0}\)</span>, el p-valor és <span class="math inline">\(P(S\leqslant x_0)\)</span></p></li>
+<li><p>Si <span class="math inline">\(H_{1}:p\neq p_{0}\)</span>, el p-valor és <span class="math inline">\(2\min\{P(S\leqslant x_0),P(S\geqslant x_0)\}\)</span></p></li>
 </ul>
+
+<div class="rmdcaution">
+Una distribució binomial <span class="math inline">\(B(n,p_0)\)</span> només és simètrica quan <span class="math inline">\(p_0= 0.5\)</span>.
+</div>
+
 <p>Aquest test binomial exacte està implementat en R en la funció <code>binom.test</code></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.test</span>(x, n, <span class="dt">p=</span>..., <span class="dt">alternative=</span>..., <span class="dt">conf.level=</span>...)</code></pre>
 <p>on <code>x</code> indica al nombre d’èxits, <code>n</code> la mida de la mostra, <code>p</code> la probablitat que es contrasta, i els altres dos paràmetres signifiquen el mateix que a les altres funcions explicades fins ara. L’interval de confiança que dóna en els contrastos bilaterals és el de Clopper-Pearson.</p>
@@ -1292,22 +1307,23 @@ H_{1}:p\neq 0.1
 <div id="test-aproximat" class="section level4 unnumbered">
 <h4>Test aproximat</h4>
 <p>Suposem que prenem una mostra aleatòria simple de <span class="math inline">\(X\)</span> de mida <span class="math inline">\(n\)</span> <em>gran</em>, posem de 40 subjectes o més, i que hi obtenim una prporció mostral d’èxits <span class="math inline">\(\widehat{p}_X\)</span>.
-En aquest cas, si <span class="math inline">\(H_{0}:p=p_{0}\)</span> és vertadera, pel Teorema Central del Límit,
+En aquest cas, si <span class="math inline">\(H_{0}:p=p_{0}\)</span> és vertadera, pel Teorema Central del Límit, la distribució de
 <span class="math display">\[
-Z=\frac{\widehat{p}_X-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\approx N(0,1)
+Z=\frac{\widehat{p}_X-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}
 \]</span>
-Ho podem emprar per calcular p-valors i intervals de confiança: si <span class="math inline">\(Z\)</span> pren el valor <span class="math inline">\(z_0\)</span>,</p>
+és aproximadament la d’una variable <span class="math inline">\(N(0,1)\)</span>. Ho podem emprar per calcular p-valors i intervals de confiança. Si <span class="math inline">\(Z\)</span> pren el valor <span class="math inline">\(z_0\)</span>,</p>
 <ul>
 <li><p>Quan <span class="math inline">\(H_{1}:p&gt;p_{0}\)</span>, el p-valor és <span class="math inline">\(P(Z\geqslant z_0)\)</span></p></li>
 <li><p>Quan <span class="math inline">\(H_{1}:p&lt;p_{0}\)</span>, el p-valor és <span class="math inline">\(P(Z\leqslant z_0)\)</span></p></li>
 <li><p>Quan <span class="math inline">\(H_{1}:p\neq p_{0}\)</span>, el p-valor és <span class="math inline">\(2P(Z\geqslant|z_0|)\)</span> (recordau que <span class="math inline">\(Z\)</span> és simètrica)</p></li>
 </ul>
 <p>Amb R, està implementat en la funció</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(x, n, <span class="dt">p=</span>...,<span class="dt">alternative=</span>..., <span class="dt">conf.level=</span>..., <span class="dt">correct=</span>...)</code></pre>
-<p>on els paràmetres tenen el mateix significat que a <code>binom.test</code> excepte <code>correct</code>, que serveix per especificar si volem que s’apliqui una correcció de continuïtat que millora els resultats. El seu valor per defecte és <code>TRUE</code>, i és el que us reconaman que empreu; el que hem explicat aquí correspon a <code>correct=FALSE</code>. L’interval de confiança que dóna aquesta funció en un contrast bilateral és el de Wilson (amb o sense correcció de continuïtat, segons el que valgui <code>correct</code>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(x, n, <span class="dt">p=</span>...,<span class="dt">alternative=</span>..., <span class="dt">conf.level=</span>..., 
+          <span class="dt">correct=</span>...)</code></pre>
+<p>on els paràmetres tenen el mateix significat que a <code>binom.test</code> excepte <code>correct</code>, que serveix per especificar si volem que s’apliqui una correcció de continuïtat (que és recomanable quan s’aproxima una variable discreta per una contínua però que nosaltres no aplicarem en realitzar contrastos “a mà” per no complicar-los) que millora els resultats. El seu valor per defecte és <code>TRUE</code>, i és el que us reconaman que empreu; el que hem explicat aquí correspon a <code>correct=FALSE</code>. L’interval de confiança que dóna aquesta funció en un contrast bilateral és el de Wilson (amb o sense correcció de continuïtat, segons el que valgui <code>correct</code>).</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-259" class="example"><strong>Exemple 4.12  </strong></span>Continuant amb l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:esqUIB1">4.11</a>, ara hi emprarem el test aproximat, tot i que no és lo seu.</p>
+<p><span id="exm:unnamed-chunk-262" class="example"><strong>Exemple 4.12  </strong></span>Continuant amb l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:esqUIB1">4.11</a>, ara hi emprarem el test aproximat, tot i que no és lo seu.</p>
 </div>
 
 <p><em>Estadístic de contrast</em>:
@@ -1319,8 +1335,8 @@ que, si <span class="math inline">\(H_0\)</span> és vertadera, seguiria una dis
 <span class="math display">\[
 z_0=\frac{\frac{1}{30}-0.1}{\sqrt{\frac{0.1(1-0.1)}{30}}}=-1.22
 \]</span></p>
-<p><em>p-valor</em>: <span class="math inline">\(2P(Z\geqslant 1.22)=\texttt{2*(1-pnorm(1.22))}=0.222\)</span></p>
-<p><em>Conclusió</em>: Un altre cop, no obtenim evidència estadísticament significativa que el percentatge d’esquerrans a la UIB sigui diferent del 10% (prop-test, p-valor 0.222).</p>
+<p><em>p-valor</em>: <span class="math inline">\(2P(Z\geqslant|-1.22|)=\texttt{2*(1-pnorm(1.22))}=0.222\)</span></p>
+<p><em>Conclusió</em>: Un altre cop, no obtenim evidència estadísticament significativa que el percentatge d’esquerrans a la UIB sigui diferent del 10% (prop-test, p-valor 0.22).</p>
 <p>Amb R, entraríem:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dt">p=</span><span class="fl">0.1</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
 <pre><code>## Warning in prop.test(1, 30, p = 0.1, alternative = &quot;two.sided&quot;): Chi-
@@ -1352,8 +1368,13 @@ z_0=\frac{\frac{1}{30}-0.1}{\sqrt{\frac{0.1(1-0.1)}{30}}}=-1.22
 ##          p 
 ## 0.03333333</code></pre>
 
+<div class="rmdnote">
+El missatge d’advertència que ens ha donat R en aquestes dues execucions de la funció <code>prop.test</code> ens diu que no se satisfan les condicions necessàries per que el resultat d’aquest contrast sigui vàlid.
+</div>
+
+
 <div class="example">
-<p><span id="exm:unnamed-chunk-262" class="example"><strong>Exemple 4.13  </strong></span>Quina és la potència d’aquest contrast aproximat?</p>
+<p><span id="exm:unnamed-chunk-266" class="example"><strong>Exemple 4.13  </strong></span>Quina és la potència del contrast realitzat a l’exemple anterior?</p>
 </div>
 
 <p>Emprarem les funcions del paquet <strong>pwr</strong> per calcular-la. Primer calculam la mida de l’efecte observat amb la funció <code>ES.h</code> aplicada a la proporció poblacional contrastada i a la proporció mostral:</p>
@@ -1361,16 +1382,16 @@ z_0=\frac{\frac{1}{30}-0.1}{\sqrt{\frac{0.1(1-0.1)}{30}}}=-1.22
 <span class="kw">ES.h</span>(<span class="fl">0.1</span>,<span class="fl">0.03</span>)</code></pre>
 <pre><code>## [1] 0.2953351</code></pre>
 <p>I ara aplicam la funció <code>pwr.p.test</code> a la mida de l’efecte observat, <code>h</code>, la mida de la mostra, <code>n</code>, el nivell de significació, <code>sig.level</code>, i el tipus de contrast, <code>alternative</code>, i ens donarà la potència:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pwr.p.test</span>(<span class="dt">h=</span><span class="dv">295</span>, <span class="dt">n=</span><span class="dv">30</span>, <span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pwr.p.test</span>(<span class="dt">h=</span><span class="fl">0.3</span>, <span class="dt">n=</span><span class="dv">30</span>, <span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
 <pre><code>## 
 ##      proportion power calculation for binomial distribution (arcsine transformation) 
 ## 
-##               h = 295
+##               h = 0.3
 ##               n = 30
 ##       sig.level = 0.05
-##           power = 1
+##           power = 0.3758563
 ##     alternative = two.sided</code></pre>
-<p>Què hagués passat si en lloc de 1 esquerrà en una mostra de 30 haguéssim trobat 5 esquerrans en una mostra (aleatòria simple) de 150 estudiants, de manera que la proproció mostral es manté?</p>
+<p>Què hagués passat si, en lloc d’1 esquerrà en una mostra de 30, haguéssim trobat 5 esquerrans en una mostra (aleatòria simple) de 150 estudiants, de manera que la proporció mostral fos la mateixa?</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="dv">5</span>, <span class="dv">150</span>, <span class="dt">p=</span><span class="fl">0.1</span>)</code></pre>
 <pre><code>## 
 ##  1-sample proportions test with continuity correction
@@ -1396,7 +1417,7 @@ z_0=\frac{\frac{1}{30}-0.1}{\sqrt{\frac{0.1(1-0.1)}{30}}}=-1.22
 <p>Amb una mostra més gran, la potència és més gran, és més fàcil detectar que la hipòtesi alternativa sigui vertadera.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-267" class="example"><strong>Exemple 4.14  </strong></span>De quina mida hauríem d’haver pres la mostra per obtenir una potència del 90% amb <span class="math inline">\(\alpha=0.05\)</span> i esperant un efecte petit?</p>
+<p><span id="exm:unnamed-chunk-271" class="example"><strong>Exemple 4.14  </strong></span>De quina mida hauríem d’haver pres la mostra per obtenir una potència del 90% amb <span class="math inline">\(\alpha=0.05\)</span> i esperant un efecte petit?</p>
 </div>
 
 <p>Per determinar el valor d’un “efecte petit” entram</p>
@@ -1417,6 +1438,7 @@ z_0=\frac{\frac{1}{30}-0.1}{\sqrt{\frac{0.1(1-0.1)}{30}}}=-1.22
 ##       sig.level = 0.05
 ##           power = 0.9
 ##     alternative = two.sided</code></pre>
+<p>Ens caldria una mostra aleatòria simple de 263 estudiants.</p>
 
 <div class="rmdnote">
 Com que en un contrast d’una proporció sempre hi podem emprar el test binomial exacte, no hi ha necessitat d’emprar-hi tests no paramètrics.
@@ -1445,7 +1467,11 @@ Obtenim la taula de freqüències següent
 \textrm{Total} &amp; n_{1} &amp; n_{2} 
 \end{array}
 \]</span></p>
-<p>Aleshores tenim dues opcions: realitzar un test <span class="math inline">\(\chi^2\)</span>, que empra una aproximació a una normal i requereix que les dues mostres siguin grans, o un test exacte no dóna la informació exactament com la voldríem.</p>
+<p>Aleshores tenim dues opcions:</p>
+<ul>
+<li>Realitzar un test <span class="math inline">\(\chi^2\)</span>, que es basa en una aproximació a una normal i requereix algunes condicions sobre les dues mostres</li>
+<li>Realitzar un test de Fisher, que es pot emprar sempre però no dóna la informació exactament com la voldríem</li>
+</ul>
 <div id="test-chi2" class="section level4 unnumbered">
 <h4>Test <span class="math inline">\(\chi^2\)</span></h4>
 <p>Suposem que les dues mostres són <em>grans</em>, per fixar idees <span class="math inline">\(n_1,n_2\geqslant 50\)</span>, i que els nombres d’èxits i de fracasos a cada mostra <em>no són molt petits</em>, per fixar idees tots dos més grans o iguals que 5. Siguin <span class="math inline">\(\widehat{p}_1\)</span> i <span class="math inline">\(\widehat{p}_2\)</span> les proporcions mostrals d’èxits a les dues mostres.</p>
@@ -1457,19 +1483,20 @@ Z=\frac{\widehat{p}_1 -\widehat{p}_2}{
 +n_2}\Big)\cdot \Big(\frac{1}{n_1}+\frac{1}{n_2}
 \Big)}}
 \]</span>
-(<span class="math inline">\(E=n_1 \widehat{p}_1 +n_2 \widehat{p}_2\)</span> és el nombre total d’èxits a les dues mostres) té distribució aprosimadament normal estàndard, la qual cosa es pot emprar com sempre per calcular p-valors i intervals de confiança.</p>
+(<span class="math inline">\(E=n_1 \widehat{p}_1 +n_2 \widehat{p}_2\)</span> és el nombre total d’èxits a les dues mostres) té distribució aproximadament normal estàndard, la qual cosa es pot emprar com sempre per calcular p-valors i intervals de confiança.</p>
 <p>Aquest test està implementat en la funció de R</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="kw">c</span>(x1,x2), <span class="kw">c</span>(n1,n2) ,<span class="dt">alternative=</span>..., <span class="dt">conf.level=</span>..., <span class="dt">correct=</span>...)</code></pre>
-<p>on <code>x1</code> i <code>x2</code> són els nombres d’èxits a les dues mostres i <code>n1</code>, <code>n2</code> les seves mides. Com al cas d’una proporció, la versió que hem explicat correspon a <code>correct=FALSE</code>, és més recomanable emprar el valor per defecte de <code>correct</code>, que és TRUE i fa que s’hi apliqui una correcció de continuïtat.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="kw">c</span>(x1,x2), <span class="kw">c</span>(n1,n2) ,<span class="dt">alternative=</span>..., 
+          <span class="dt">conf.level=</span>..., <span class="dt">correct=</span>...)</code></pre>
+<p>on <code>x1</code> i <code>x2</code> són els nombres d’èxits a les dues mostres i <code>n1</code>, <code>n2</code> les seves mides. Com al cas d’una proporció, la versió que hem explicat correspon a <code>correct=FALSE</code>, però és més recomanable emprar el valor per defecte de <code>correct</code>, que és TRUE i fa que s’hi apliqui una correcció de continuïtat.</p>
 
 <div class="rmdnote">
-Aquest test s’anomena <strong>prop-test</strong>, o també <strong>test</strong> <span class="math inline">\(\chi^2\)</span> perquè és un cas particular d’un test <span class="math inline">\(\chi^2\)</span> que veurem més endavant. En la seva implementació en R no s’hi empra <span class="math inline">\(Z\)</span> sinó <span class="math inline">\(Z^2\)</span>, que té distribució aproximadament <span class="math inline">\(\approx\chi^2_1\)</span>.
+Aquest test s’anomena <strong>prop-test</strong>, o també <strong>test</strong> <span class="math inline">\(\chi^2\)</span> perquè és un cas particular d’un test <span class="math inline">\(\chi^2\)</span> que veurem al proper tema. Det fet, en la seva implementació en R no s’hi empra <span class="math inline">\(Z\)</span> sinó <span class="math inline">\(Z^2\)</span>, que té distribució aproximadament <span class="math inline">\(\chi^2_1\)</span>.
 </div>
 
 
 <div class="example">
-<p><span id="exm:allel1" class="example"><strong>Exemple 4.15  </strong></span>Es volgué saber si un determinat al·lel d’un gen és present o no amb la mateixa proporció entre els mallorquins i els menorquins.
-Es prengueren una mostra d’ADN de 100 individus amb almenys tres generacions familiars a l’illa de Mallorca, i una altra de 50 individus amb almenys tres generacions familiars a l’illa de Menorca: les mostres es prengueren de manera independent. A la mostra mallorquina, 20 individus el tengueren, i a la mostra menorquina, 12. La taula de freqüències és, doncs</p>
+<p><span id="exm:allel1" class="example"><strong>Exemple 4.15  </strong></span>En un estudi es volgué saber si un determinat al·lel d’un gen és present o no amb la mateixa proporció entre els mallorquins i els menorquins.
+Es prengueren una mostra d’ADN de 100 individus amb almenys tres generacions familiars a l’illa de Mallorca, i una altra de 50 individus amb almenys tres generacions familiars a l’illa de Menorca: les mostres es prengueren de manera independent. A la mostra mallorquina, 20 individus tengueren l’al·lel, i a la mostra menorquina, 12. La taula de freqüències és, doncs</p>
 </div>
 
 <p><span class="math display">\[
@@ -1480,10 +1507,12 @@ Es prengueren una mostra d’ADN de 100 individus amb almenys tres generacions f
 \textrm{Total} &amp; 100 &amp; 50   
 \end{array}
 \]</span></p>
-<p><em>Variables d’interés</em>:
-* <span class="math inline">\(X_1\)</span>: Prenem un mallorquí amb 3 generacions familiars a l’illa i miram si té aquest al·lel.
-* <span class="math inline">\(X_2\)</span>: Prenem un menorquí amb 3 generacions familiars a l’illa i miram si té aquest al·lel.</p>
-<p>Són Bernoulli, de proporcions poblacionals d’èxit <span class="math inline">\(p_1\)</span> i <span class="math inline">\(p_2\)</span>, respectivament.</p>
+<p><em>Variables d’interés</em>:</p>
+<ul>
+<li><span class="math inline">\(X_1\)</span>: “Prenem un mallorquí amb 3 generacions familiars a l’illa i miram si té aquest al·lel”</li>
+<li><span class="math inline">\(X_2\)</span>: “Prenem un menorquí amb 3 generacions familiars a l’illa i miram si té aquest al·lel”</li>
+</ul>
+<p>Totes dues són Bernoulli, de proporcions poblacionals d’èxit <span class="math inline">\(p_1\)</span> i <span class="math inline">\(p_2\)</span>, respectivament.</p>
 <p><em>Contrast</em>:
 <span class="math display">\[
 \left\{\begin{array}{l}
@@ -1491,7 +1520,7 @@ H_0:p_1=p_2\\
 H_1:p_1\neq p_2
 \end{array}\right.
 \]</span></p>
-<p>Estam les condicions de poder emprar el test <span class="math inline">\(\chi^2\)</span>, perquè les dues mostres són prou grans.</p>
+<p>Estam les condicions de poder emprar el test <span class="math inline">\(\chi^2\)</span>, perquè les dues mostres i els seus nombres d’èxits (individus amb l’al·lel) i fracassos (individus sense l’al·lel) són prou grans.</p>
 <p><em>Estadístic de contrast</em>:
 <span class="math display">\[
 Z=\frac{\widehat{p}_1 -\widehat{p}_2}{
@@ -1501,15 +1530,15 @@ Z=\frac{\widehat{p}_1 -\widehat{p}_2}{
 \Big)}}
 \]</span>
 que és aproximadament <span class="math inline">\(N(0,1)\)</span> si <span class="math inline">\(H_0\)</span> és vertadera.</p>
-<p><em>Valor de l’estadístic</em>: <span class="math inline">\(\widehat{p}_1=0.2\)</span>, <span class="math inline">\(\widehat{p}_2=0.24\)</span>, <span class="math inline">\(n_1=100\)</span>, <span class="math inline">\(n_2=50\)</span>, <span class="math inline">\(E=32\)</span> i per tant
+<p><em>Valor de l’estadístic</em>: Teim que <span class="math inline">\(\widehat{p}_1=0.2\)</span>, <span class="math inline">\(\widehat{p}_2=0.24\)</span>, <span class="math inline">\(n_1=100\)</span>, <span class="math inline">\(n_2=50\)</span>, <span class="math inline">\(E=32\)</span> i per tant
 <span class="math display">\[
 z_0=\frac{0.2 -0.24}{
 \sqrt{\frac{32}{150}\Big(1-\frac{32}{150}\Big)\Big(\frac{1}{100}+\frac{1}{50}
 \Big)}}
 =-0.5637
 \]</span></p>
-<p><em>p-valor</em>: <span class="math inline">\(2\cdot P(Z\geqslant 0.5637)=0.573\)</span></p>
-<p><em>Conclusió</em>: No hem trobat evidència esatdísticament significativa que les proporcions de mallorquins i menorquins amb aquest al·lel siguin diferents (test <span class="math inline">\(\chi^2\)</span>, p-valor 0.57).</p>
+<p><em>p-valor</em>: <span class="math inline">\(2\cdot P(Z\geqslant|-0.5637|)=0.573\)</span></p>
+<p><em>Conclusió</em>: No hem trobat evidència estadísticament significativa que les proporcions de mallorquins i menorquins amb aquest al·lel siguin diferents (test <span class="math inline">\(\chi^2\)</span>, p-valor 0.57).</p>
 <p>Amb R, entraríem</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">12</span>), <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">50</span>), <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
 <pre><code>## 
@@ -1538,6 +1567,7 @@ z_0=\frac{0.2 -0.24}{
 ## sample estimates:
 ## prop 1 prop 2 
 ##   0.20   0.24</code></pre>
+<p>L’interval de confiança que dóna la funció <code>prop.test</code> en un contrast de dues proporcions és per a la diferència de les proporcions, <span class="math inline">\(p_1-p_2\)</span>.</p>
 </div>
 <div id="test-exacte-de-fisher" class="section level4 unnumbered">
 <h4>Test exacte de Fisher</h4>
@@ -1551,7 +1581,7 @@ Tenim la taula de freqüències
 \textrm{Total} &amp; n_{1} &amp; n_{2} 
 \end{array}
 \]</span></p>
-<p>Si <span class="math inline">\(p_1=p_2\)</span>, la probabilitat d’obtenir <span class="math inline">\(n_{11}\)</span> èxits dins <span class="math inline">\(X_1\)</span> és la de:</p>
+<p>Si <span class="math inline">\(p_1=p_2\)</span>, les dues variables <span class="math inline">\(X_1\)</span> i <span class="math inline">\(X_2\)</span> tenen la mateixa probabilitat d’èxit, i per tant les dues mostres podrien considerar-se com a dues mostres independents de la mateixa variable <span class="math inline">\(X_1\)</span>. Llavors, la probabilitat d’obtenir <span class="math inline">\(n_{11}\)</span> èxits dins la mostra de <span class="math inline">\(X_1\)</span> és la de:</p>
 <blockquote>
 <p>Si en una bossa hi tenim <span class="math inline">\(E\)</span> bolles “Èxit” i <span class="math inline">\(F\)</span> bolles “Fracàs”, la probabilitat d’obtenir <span class="math inline">\(n_{11}\)</span> bolles “Èxit” si en triam <span class="math inline">\(n_{1}\)</span> de cop.</p>
 </blockquote>
@@ -1565,7 +1595,8 @@ Tenim la taula de freqüències
 <li><p><span class="math inline">\(p_1\)</span>: proporció de parelles de bessons monozigòtics amb algun cas de SIDS on només un germà la sofrí</p></li>
 <li><p><span class="math inline">\(p_2\)</span>: proporció de parelles de bessons dizigòtics amb algun cas de SIDS on només un germà la sofrí</p></li>
 </ul>
-<p>Si la SIDS té component genètic, hauria de passar que <span class="math inline">\(p_1&lt;p_2\)</span>: si en una parella de bessons un d’ells mor per SIDS i aquesta síndrome té component genètic, és més probable que l’altre bessó també la sofreixi si els bessons són monozigòtics que si són dizigòtics, i per tant <em>és menys probable que l’altre bessó no la sofreixi si els bessons són monozigòtics que si són dizigòtics</em>.</p>
+<p>Si la SIDS té component genètic, hauria de passar que <span class="math inline">\(p_1&lt;p_2\)</span>. En efecte, si aquesta síndrome té component genètic i en una parella de bessons un d’ells mor per SIDS, és més probable que l’altre bessó també la sofreixi si els bessons són monozigòtics que si són dizigòtics, ja que els genomes dels monozigòtics són pràcticament idèntics i els dels dizigòtics no. És a dir, és més probable que l’altre bessó també mori per SIDS si els bessons són monozigòtics que si són dizigòtics, o el que és el mateix,
+<em>és MENYS probable que l’altre bessó NO mori per SIDS si els bessons són monozigòtics que si són dizigòtics</em>.</p>
 <p>Per tant el contrast que volem realitzar és
 <span class="math display">\[
 \left\{\begin{array}{l}
@@ -1608,13 +1639,14 @@ P(H(58,3,24)\leqslant 23) =\texttt{phyper(23,58,3,24)}=0.7841
 ## sample estimates:
 ## odds ratio 
 ##   1.308589</code></pre>
+<p>Obtenim el mateix p-valor, i un interval de confiança del 95% que va de 0 a 39.7. Ja us podeu imaginar que aquest interval de confiança no pot ser per a <span class="math inline">\(p_1-p_2\)</span>…</p>
 
 <div class="rmdcaution">
-La funció <code>fisher.test</code> no compara <span class="math inline">\(p_1\)</span> i <span class="math inline">\(p_2\)</span>, sinó les seves <strong>odds</strong> (<strong>oportunitats</strong>; en castellà, també <em>momios</em>)
+En realitat, la funció <code>fisher.test</code> no compara <span class="math inline">\(p_1\)</span> i <span class="math inline">\(p_2\)</span>, sinó les seves <strong>odds</strong> (<strong>oportunitats</strong>; en castellà, també <em>momios</em>)
 <span class="math display">\[
-\frac{p_1}{1-p_1}\text{ i }\frac{p_2}{1-p_2}
+\frac{p_1}{1-p_1}\text{ i }\frac{p_2}{1-p_2}.
 \]</span>
-i l’interval de confiança que dóna és per al quocient d’aquestes <em>odds</em>: la seva <strong>odds ratio</strong> (<strong>OR</strong>, <strong>raó d’oportunitats</strong>; en castellà, també <em>razón de momios</em>).
+L’interval de confiança que dóna és per al quocient d’aquestes <em>odds</em>: la seva <strong>odds ratio</strong> (<strong>OR</strong>, <strong>raó d’oportunitats</strong>; en castellà, també <em>razón de momios</em>).
 </div>
 
 <p>Fem un incís sobre les <em>odds</em>. Les <strong>odds</strong> d’un esdeveniment <span class="math inline">\(A\)</span> són
@@ -1644,23 +1676,37 @@ P(A)=\dfrac{\text{Odds}(A)}{1+\text{Odds}(A)}
 <span class="math display">\[
 \begin{array}{c}
 \text{Odds}(A)&lt;\text{Odds}(B)\Longleftrightarrow P(A)&lt;P(B)\\ 
+\text{Odds}(A)&gt;\text{Odds}(B)\Longleftrightarrow P(A)&gt;P(B)\\ 
 \text{Odds}(A)=\text{Odds}(B)\Longleftrightarrow P(A)=P(B)
 \end{array}
 \]</span>
 i per tant comparant les probabilitats o les <em>odds</em> de dos esdeveniments obteniu la mateixa informació sobre quin és més probable.</p>
-<pre class="blok2"><code>Si, per exemple, la *odds ratio* de $A$ i $B$ és
-$$
-  \text{OR}(A,B)=\frac{\text{Odds}(A)}{\text{Odds}(B)}=1.5
-$$
-i per tant $\text{Odds}(A)=1.5\text{Odds}(B)$:
 
-* Com que en particular $\text{Odds}(A)&gt; \text{Odds}(B)$, podeu concloure que $P(A)&gt;P(B)$
+<div class="rmdimportant">
+<p>La <em>odds ratio</em> de <span class="math inline">\(A\)</span> i <span class="math inline">\(B\)</span> és
+<span class="math display">\[
+  \text{OR}(A,B)=\frac{\text{Odds}(A)}{\text{Odds}(B)}=1
+\]</span>
+si, i només si, <span class="math inline">\(\text{Odds}(A)=\text{Odds}(B)\)</span> i per tant, pel que acabam de dir, si, i només si, <span class="math inline">\(P(A)=P(B)\)</span>.</p>
+Per tant, si l’interval de confiança per a la <em>odds ratio</em> que dóna la funció <code>fisher.test</code> conté l’1, no podem rebutjar que les dues proporcions poblacionals d’èxit siguin iguals.
+</div>
 
-* Però el fet que $\text{Odds}(A)=1.5\text{Odds}(B)$ **no implica** que $P(A)=1.5P(B)$. De fet, de $OR(A,B)$ no podeu deduir el valor de $P(A)/P(B)$. Intentau-ho si no ens creieu.
-</code></pre>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-279" class="example"><strong>Exemple 4.17  </strong></span>Si realitzam el contrast de l’Exemple <a href="#exmallel1"><strong>??</strong></a> amb el test <span class="math inline">\(\chi^2\)</span>, obtenim</p>
+<p><span id="exm:unnamed-chunk-283" class="example"><strong>Exemple 4.17  </strong></span>Si, per exemple, la <em>odds ratio</em> de <span class="math inline">\(A\)</span> i <span class="math inline">\(B\)</span> és
+<span class="math display">\[
+  \text{OR}(A,B)=\frac{\text{Odds}(A)}{\text{Odds}(B)}=1.5
+\]</span>
+i per tant <span class="math inline">\(\text{Odds}(A)=1.5\cdot \text{Odds}(B)\)</span>:</p>
+</div>
+
+<ul>
+<li><p>Com que en particular <span class="math inline">\(\text{Odds}(A)&gt; \text{Odds}(B)\)</span>, podeu concloure que <span class="math inline">\(P(A)&gt;P(B)\)</span></p></li>
+<li><p>Però el fet que <span class="math inline">\(\text{Odds}(A)=1.5\cdot \text{Odds}(B)\)</span> <strong>no implica</strong> que <span class="math inline">\(P(A)=1.5P(B)\)</span>. De fet, d’aquest de <span class="math inline">\(OR(A,B)\)</span> no podeu deduir el valor de <span class="math inline">\(P(A)/P(B)\)</span>. Intentau-ho si no ens creieu.</p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-284" class="example"><strong>Exemple 4.18  </strong></span>Si realitzam el contrast de l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:allel1">4.15</a> amb el test <span class="math inline">\(\chi^2\)</span>, obtenim</p>
 </div>
 
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">12</span>),<span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">50</span>),<span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,<span class="dt">correct=</span><span class="ot">FALSE</span>)</code></pre>
@@ -1677,7 +1723,7 @@ i per tant $\text{Odds}(A)=1.5\text{Odds}(B)$:
 ## prop 1 prop 2 
 ##   0.20   0.24</code></pre>
 <ul>
-<li><p>El p-valor 0.5729 no ens permet rebutjar que les proporcions de mallorquins i menorquins amb l’al·lel objecte d’estudi siguin diferents</p></li>
+<li><p>El p-valor 0.5729 no ens permet rebutjar que les proporcions de mallorquins i menorquins amb l’al·lel objecte d’estudi siguin iguals</p></li>
 <li><p>L’IC 95% per a la diferència de proporcions va de -0.18 a 0.1: com que conté el 0, no podem rebutjar amb aquest nivell de confiança que les proporcions siguin iguals</p></li>
 <li><p>La diferència de proporcions mostrals <span class="math inline">\(p_1-p_2\)</span> ha estat <span class="math inline">\(0.2-0.24=-0.04\)</span>: la proporció de menorquins amb l’al·lel a la nostra mostra ha estat 4 punts percentuals més gran que la dels mallorquins</p></li>
 </ul>
@@ -1696,9 +1742,9 @@ i per tant $\text{Odds}(A)=1.5\text{Odds}(B)$:
 ## odds ratio 
 ##  0.7929466</code></pre>
 <ul>
-<li><p>El p-valor 0.673 no ens permet rebutjar que les <strong>odds</strong> de tenir aquest al·lel entre els mallorquins i els menorquins siguin la mateixa; com que igualtat d’<em>odds</em> és equivalent a igualtat de probabilitats, no podem rebutjar que els mallorquins i menorquins tenguin probabilitats diferents de tenir l’al·lel objecte d’estudi</p></li>
-<li><p>L’IC 95% per a la <strong>odds ratio</strong> (per al quocient de les <em>odds</em>) va de 0.33 a 1.97: com que conté el 1, no podem rebutjar amb aquest nivell de confiança que la <em>odds ratio</em> sigui 1 i que per tant les <em>odds</em> (i per tant les proporcions) siguin iguals</p></li>
-<li><p>El <em>quocient d’odds mostrals</em> (la <strong>odds ratio mostral</strong>) ha estat 0.79: a la nostra mostra, les <em>odds</em> que un mallorquí tengués l’al·lel han estat 0.79 vegades (un 21% més petites que) les d’un menorquí; però això no ens dóna cap relación numèrica entre les proporcions mostrals de mallorquins i menorquins amb l’al·lel.</p></li>
+<li><p>El p-valor 0.673 no ens permet rebutjar que les <strong>odds</strong> de tenir aquest al·lel entre els mallorquins i els menorquins siguin iguals; com que igualtat d’<em>odds</em> és equivalent a igualtat de probabilitats, no podem rebutjar que els mallorquins i menorquins tenguin la mateixa probabilitat de tenir l’al·lel objecte d’estudi</p></li>
+<li><p>L’IC 95% per a la <strong>odds ratio</strong> (per al quocient de les <em>odds</em>) va de 0.33 a 1.97: com que conté l’1, no podem rebutjar amb aquest nivell de confiança que la <em>odds ratio</em> sigui 1; és a dir, no podem rebutjar que les <em>odds</em> siguin iguals; és a dir, no podem rebutjar que les proporcions siguin iguals</p></li>
+<li><p>El <em>quocient d’odds mostrals</em> (la <strong>odds ratio mostral</strong>) ha estat 0.79: a la nostra mostra, les <em>odds</em> que un mallorquí tengués l’al·lel han estat 0.79 vegades (un 21% més petites que) les d’un menorquí; però això no ens dóna cap relació numèrica entre les proporcions mostrals de mallorquins i menorquins amb l’al·lel.</p></li>
 </ul>
 </div>
 </div>
@@ -1717,45 +1763,51 @@ però ara les mesuram sobre els subjectes d’una mateixa mostra, o sobre els su
 Suposem que tenim els resultats en una taula</p>
 <p><span class="math display">\[
 \begin{array}{c}
-\hphantom{Variablessss}  \text{Variable $X_2$}\\
-\begin{array}{r|c|c|}
+\hphantom{Variablesssss}  \text{Variable $X_2$}\\
+\begin{array}{r|cc}
 \text{Variable $X_1$} &amp;\text{Èxit} &amp; \text{Fracàs} \\  \hline
 \text{Èxit} &amp; a &amp; b \\
-\text{Fracàs} &amp; c &amp; d\\ \hline
+\text{Fracàs} &amp; c &amp; d\\ 
 \end{array}
 \end{array}
 \]</span>
 on cada entrada representa el nombre de subjectes (o parelles) que satisfan les condicions de la filera i la columna.</p>
+<p>En aquest cas tenim dues opcions:</p>
+<ul>
+<li>Realitzar un test de McNemar, que només serveix per a contrastos bilaterals i a més requereix algunes condicions sobre les dues mostres</li>
+<li>Realitzar un test binomial, que es pot emprar sempre però no dóna la informació exactament com la voldríem</li>
+</ul>
 <div id="test-de-mcnemar" class="section level4 unnumbered">
 <h4>Test de McNemar</h4>
 <p>Quan el test és <strong>bilateral</strong>, si <span class="math inline">\(n\)</span> és prou gran (posem, a partir de 100) i si el nombre de <strong>casos discordants</strong> (<span class="math inline">\(b+c\)</span> en la taula anterior) és grandet (posem, més gran o igual que 20), es pot emprar el <strong>test de McNemar</strong>, que empra l’estadístic de contrast
 <span class="math display">\[
 Z^2=\frac{(b-c)^2}{b+c}
 \]</span>
-que, si se satisfan les condicions esmentades, segueix aproximadament una distribució <span class="math inline">\(\chi^2_1\)</span> si <span class="math inline">\(H_0\)</span> és vertadera.</p>
-<p>Auest tesy està implementat en R en la funció <code>mcnemar.test</code>, que s’aplica s’aplica a la taula de freqüències absolutes de la mostra tal i com l’hem donada.</p>
+el qual, si se satisfan les condicions esmentades, segueix aproximadament una distribució <span class="math inline">\(\chi^2_1\)</span> si <span class="math inline">\(H_0\)</span> és vertadera.</p>
+<p>En aquest test se rebutja la hipòtesi nul·la si <span class="math inline">\(b\)</span> i <span class="math inline">\(c\)</span> són prou diferents i per tant, malgrat ser un contrast bilateral, es pren com a p-valor <span class="math inline">\(P(Z^2\geqslant Z_0^2)\)</span>, on <span class="math inline">\(Z_0^2\)</span> és el valor de l’estadístic a la nostra mostra.</p>
+<p>Aquest test està implementat en R en la funció <code>mcnemar.test</code>, que s’aplica a la taula de freqüències absolutes de la mostra tal i com l’hem donada.</p>
 
 <div class="example">
-<p><span id="exm:migranya" class="example"><strong>Exemple 4.18  </strong></span>En un assaig clínic es volgué comparar l’efectivitat d’un fàrmac nou contra la migranya amb la d’un placebo.
-Es prengué una mostra de 500 persones afectades per migranya. A cada una, a l’atzar, se li administrà el fàrmac o el placebo. Se’ls demanà si havien notat alleujament en el dolor. Al cap d’un temps, als mateixos individus se’ls subministrà l’altre tractament (fàrmac als que havien rebut placebo, placebo als que havien rebut fàrmac) i se’ls tornà a demanar si havien notat o no milloria.</p>
+<p><span id="exm:migranya" class="example"><strong>Exemple 4.19  </strong></span>En un assaig clínic es volgué comparar l’efectivitat d’un fàrmac nou contra la migranya amb la d’un placebo.
+Es prengué una mostra de 500 persones afectades per migranya. A cada una, a l’atzar, se li administrà el fàrmac o el placebo. Se’ls demanà si havien notat alleujament en el dolor. Al cap d’un temps, als mateixos individus se’ls subministrà l’altre tractament (fàrmac als que havien rebut placebo, placebo als que havien rebut fàrmac) i se’ls tornà a demanar si havien notat o no millora.</p>
 </div>
 
 <p>Els resultats varen ser:
 <span class="math display">\[
 \begin{array}{c}
 \hphantom{Variables}  \text{Placebo}\\
-\begin{array}{r|c|c|}
+\begin{array}{r|cc}
 \text{Fàrmac} &amp;\text{Sí} &amp; \text{No} \\  \hline
 \text{Sí} &amp; 150 &amp; 41  \\
-\text{No} &amp; 19 &amp; 285\\ \hline
+\text{No} &amp; 19 &amp; 285\\ 
 \end{array}
 \end{array}
 \]</span>
-on “Sí” indica que el malalt va que sí que havia notat alleujament en el dolor.</p>
+on “Sí” indica que el malalt va dir que sí que havia notat alleujament en el dolor.</p>
 <p><em>Variables d’interès</em>:</p>
 <ul>
-<li><p><span class="math inline">\(X_1\)</span>: “Prenem un malalt, li administram el fàrmac i li demanam si nota allejament del dolor”. És Bernoulli de proporció poblacional <span class="math inline">\(p_1\)</span></p></li>
-<li><p><span class="math inline">\(X_2\)</span>: “Prenem un malalt, li administram el placebo i li demanam si nota allejament del dolor”. És Bernoulli de proporció poblacional <span class="math inline">\(p_2\)</span></p></li>
+<li><p><span class="math inline">\(X_1\)</span>: “Prenem un malalt, li administram el fàrmac i li demanam si nota millora del dolor”. És Bernoulli de proporció poblacional <span class="math inline">\(p_1\)</span></p></li>
+<li><p><span class="math inline">\(X_2\)</span>: “Prenem un malalt, li administram el placebo i li demanam si nota millora del dolor”. És Bernoulli de proporció poblacional <span class="math inline">\(p_2\)</span></p></li>
 </ul>
 <p><em>Contrast</em>: Com que la mostra i el nombre de casos discordants són prou grans, podem emprar el test de McNemar, però aleshores el contrast ha de ser bilateral
 <span class="math display">\[
@@ -1770,15 +1822,8 @@ Z^2=\frac{(b-c)^2}{b+c}
 \]</span>
 que segueix una distribució aproximadament <span class="math inline">\(\chi_1^2\)</span> si <span class="math inline">\(p_1=p_2\)</span>.</p>
 <p><em>Valor sobre la nostra mostra</em>: <span class="math inline">\(Z_0^2=(41-19)^2/(41+19)=8.067\)</span></p>
-<p><em>p-valor</em>:
-<span class="math display">\[
-\begin{array}{l}
-2\min\big\{P(Z^2\geqslant 8.067),P(Z^2\leqslant 8.067)\big\}\\
-\qquad =2\min\{\texttt{1-pchisq(8.067,1)},\texttt{pchisq(8.067,1)}\}\\
-\qquad =2\min\{0.005,0.995\}=0.01
-\end{array}
-\]</span></p>
-<p><em>Conclusió</em>: Hem obtingut evidència estadísticament significativa que la taxa d’efectivitat del placebo i del fàrmac són diferents (test de McNemar, p-valor 0.007).</p>
+<p><em>p-valor</em>: <span class="math inline">\(P(Z^2\geqslant 8.067)=\texttt{1-pchisq(8.067,1)}=0.0045\)</span></p>
+<p><em>Conclusió</em>: Hem obtingut evidència estadísticament significativa que la taxa d’efectivitat del placebo i del fàrmac són diferents (test de McNemar, p-valor 0.0045).</p>
 <p>I ara, com que la taxa d’efectivitat del fàrmac ha estat superior a la del placebo (191/500 contra 169/500), faríem la petita trampa de concloure que la diferència entre aquestes taxes d’efectivitat és perquè el fàrmac es més efectiu.</p>
 <p>Amb R, entraríem</p>
 <pre class="sourceCode r"><code class="sourceCode r">Dades.M=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">150</span>,<span class="dv">41</span>,<span class="dv">19</span>,<span class="dv">285</span>), <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)
@@ -1788,6 +1833,13 @@ que segueix una distribució aproximadament <span class="math inline">\(\chi_1^2
 ## 
 ## data:  Dades.M
 ## McNemar&#39;s chi-squared = 7.35, df = 1, p-value = 0.006706</code></pre>
+<p>Ups! No ha donat el mateix estadístic ni el mateix p-valor. Això passa perquè R també aplica per defecte una correcció de continuïtat al test de McNemar. El que nosaltres hem explicat correspon a</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mcnemar.test</span>(Dades.M,<span class="dt">correct=</span><span class="ot">FALSE</span>)</code></pre>
+<pre><code>## 
+##  McNemar&#39;s Chi-squared test
+## 
+## data:  Dades.M
+## McNemar&#39;s chi-squared = 8.0667, df = 1, p-value = 0.004509</code></pre>
 </div>
 <div id="test-binomial-exacte-1" class="section level4 unnumbered">
 <h4>Test binomial exacte</h4>
@@ -1795,11 +1847,11 @@ que segueix una distribució aproximadament <span class="math inline">\(\chi_1^2
 <p>Considerau la taula de probabilitats poblacionals</p>
 <p><span class="math display">\[
 \begin{array}{c}
-\hphantom{Variablessss}  \text{Variable $X_2$}\\
-\begin{array}{r|c|c|}
+\hphantom{Variablesssss}  \text{Variable $X_2$}\\
+\begin{array}{r|cc}
 \text{Variable $X_1$} &amp;\text{Èxit} &amp; \text{Fracàs} \\  \hline
 \text{Èxit} &amp; p_{11} &amp; p_{01} \\
-\text{Fracàs} &amp; p_{10} &amp; p_{00}\\ \hline
+\text{Fracàs} &amp; p_{10} &amp; p_{00}
 \end{array}
 \end{array}
 \]</span></p>
@@ -1843,23 +1895,30 @@ H_1:  \dfrac{p_{10}}{p_{10}+p_{01}}&lt;0.5
 \frac{p_{10}}{p_{10}+p_{01}}
 \]</span>
 és la proporció poblacional de parelles (Èxit,Fracàs) dins la població de casos discordants.</p>
-<p>Aleshores, el contrast final
+<p>En general, el contrast
+<span class="math display">\[
+\left\{\begin{array}{l}
+H_0: p_1=p_2\\
+H_1: p_1&lt; p_2\text{ o }p_1&gt; p_2\text{ o }p_1\neq p_2
+\end{array}\right. 
+\]</span>
+es tradueix en el contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_0: \dfrac{p_{10}}{p_{10}+p_{01}}=0.5\\
-H_1:  \dfrac{p_{10}}{p_{10}+p_{01}}&gt;0.5\text{ o }\dfrac{p_{10}}{p_{10}+p_{01}}&lt;0.5\text{ o }\dfrac{p_{10}}{p_{10}+p_{01}}\neq 0.5
+H_1:  \dfrac{p_{10}}{p_{10}+p_{01}}&lt;0.5\text{ o }\dfrac{p_{10}}{p_{10}+p_{01}}&gt;0.5\text{ o }\dfrac{p_{10}}{p_{10}+p_{01}}\neq 0.5
 \end{array}\right.
-\]</span></p>
-<p>El podem efectuar amb un test binomial exacte prenent:</p>
+\]</span>
+i el podem efectuar amb un test binomial exacte prenent:</p>
 <ul>
 <li><p>Com a mostra, els casos discordants, de mida <span class="math inline">\(b+c\)</span></p></li>
 <li><p>Com a èxits, tenir Èxit a <span class="math inline">\(X_1\)</span> i Fracàs a <span class="math inline">\(X_2\)</span>: a la mostra n’hi ha <span class="math inline">\(b\)</span></p></li>
 <li><p>Com a proporció a contrastar: <span class="math inline">\(p=0.5\)</span></p></li>
 </ul>
-<p>L’inconvenient d’aquest test és l’interval de confiança que donarà és per a <span class="math inline">\(p_{10}/(p_{10}+p_{01})\)</span>, i no té res a veure amb <span class="math inline">\(p_1-p_2\)</span> o <span class="math inline">\(p_1/p_2\)</span>. Per tant només hi heu de mirar el p-valor.</p>
+<p>L’inconvenient d’aquest test és que l’interval de confiança que donarà és per a <span class="math inline">\(p_{10}/(p_{10}+p_{01})\)</span>, i no té res a veure amb <span class="math inline">\(p_1-p_2\)</span> o <span class="math inline">\(p_1/p_2\)</span>. Per tant només ens hi podem fixar en el p-valor.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-283" class="example"><strong>Exemple 4.19  </strong></span>Tornem a la situació de l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:migranya">4.18</a>. Ara volem fer el contrast que realment ens interessa, que és si la taxa d’efectivitat del fàrmac és més gran que la del placebo:</p>
+<p><span id="exm:unnamed-chunk-289" class="example"><strong>Exemple 4.20  </strong></span>Tornem a la situació de l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:migranya">4.19</a>. Ara volem fer el contrast que realment ens interessa, que és si la taxa d’efectivitat del fàrmac és més gran que la del placebo:</p>
 </div>
 
 <p><span class="math display">\[
@@ -1879,10 +1938,10 @@ H_1:p&gt; 0.5
 <span class="math display">\[
 \begin{array}{c}
 \hphantom{Variables}  \text{Placebo}\\
-\begin{array}{r|c|c|}
+\begin{array}{r|cc}
 \text{Fàrmac} &amp;\text{Sí} &amp; \text{No} \\  \hline
 \text{Sí} &amp; 150 &amp; 41  \\
-\text{No} &amp; 19 &amp; 285\\ \hline
+\text{No} &amp; 19 &amp; 285
 \end{array}
 \end{array}
 \]</span></p>
