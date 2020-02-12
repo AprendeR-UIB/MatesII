@@ -199,12 +199,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>L’estimació puntual ens dóna el valor d’una característica d’una població, però no ens indica l’error que es comet en aquesta estimació.
 A la pràctica, el que se sol fer és complementar un estimació puntual amb un interval que mesuri la precisió de l’estimació. Aquesta precisió depèn:</p>
 <ul>
-<li><p>De la variabilitat de la variable aleatòria d’interès, <span class="math inline">\(\sigma_X\)</span></p></li>
-<li><p>De la mida de la mostra, <span class="math inline">\(n\)</span></p></li>
-<li><p>De la variabilitat de l’estimador (que segurament depèn de les dues anteriors), <span class="math inline">\(\sigma_{\overline{X}}\)</span>, <span class="math inline">\(\sigma_{\widehat{p}_X}\)</span>…</p></li>
+<li><p>De la variabilitat de la variable aleatòria d’interès: <span class="math inline">\(\sigma_X\)</span></p></li>
+<li><p>De la mida de la mostra: <span class="math inline">\(n\)</span></p></li>
+<li><p>De la variabilitat de l’estimador (que segurament depèn de les dues anteriors): <span class="math inline">\(\sigma_{\overline{X}}\)</span>, <span class="math inline">\(\sigma_{\widehat{p}_X}\)</span>…</p></li>
 <li><p>Del <strong>nivell de confiança</strong>, o <em>seguretat</em>, de l’estimació: com de segurs volem estar que l’estimació és correcta</p></li>
 </ul>
-<p><img src="Bioestadistica-II_files/figure-html/Garfield.png" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/Garfield.png" width="60%" style="display: block; margin: auto;" /></p>
 <div id="definicions-basiques-1" class="section level2">
 <h2><span class="header-section-number">3.1</span> Definicions bàsiques</h2>
 <p>Un <strong>interval de confiança del Q%</strong> (abreviadament, un <strong>IC Q%</strong>) d’un paràmetre poblacional és un interval obtingut aplicant a una mostra aleatòria simple de mida <span class="math inline">\(n\)</span> una fórmula que satisfà la propietat següent:</p>
@@ -361,7 +361,7 @@ seg.int=<span class="cf">function</span>(i){color=<span class="st">&quot;grey&qu
   <span class="kw">segments</span>(M[<span class="dv">1</span>,i],i,M[<span class="dv">2</span>,i],i,<span class="dt">col=</span>color,<span class="dt">lwd=</span><span class="dv">2</span>)}
 <span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">200</span>,<span class="dt">FUN=</span>seg.int)
 <span class="kw">abline</span>(<span class="dt">v=</span>mu,<span class="dt">lwd=</span><span class="dv">2</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-123-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-123-1.png" width="60%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdcaution">
 <strong>Atenció!</strong> De mitjana, un IC <em>Q%</em> NO conté el valor real del paràmetre en un <em>(100-Q)%</em> de les ocasions.
@@ -370,7 +370,7 @@ seg.int=<span class="cf">function</span>(i){color=<span class="st">&quot;grey&qu
 <p>Per exemple, de mitjana, un 5% de les vegades que calculam un IC 95%, el paràmetre poblacional no pertany a l’interval obtingut. Per tant, si calculam <span class="math inline">\(n\)</span> IC 95% sobre mostres aleatòries simples independents, el nombre de vegades que l’interval resultant no contendrà el paràmetre poblacional seguirà una distribució binomial <span class="math inline">\(B(n,0.05)\)</span>. El gràfic següent dóna el valor de <span class="math inline">\(P(X\geqslant 1)\)</span> per a una variable aleatòria <span class="math inline">\(X\)</span> de tipus <span class="math inline">\(B(n,0.05)\)</span>, per a <span class="math inline">\(n=0,...,100\)</span>, i per tant la probabilitat que si calculam <span class="math inline">\(n\)</span> IC 95% sobre mostres aleatòries simples independents, almenys un d’ells no contengui el paràmetre poblacional desitjat.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">dbinom</span>(<span class="dv">0</span>,<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>,<span class="fl">0.05</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Probabilitat&quot;</span>,
      <span class="dt">main=</span><span class="st">&quot;Probabilitat d&#39;algun èxit en una B(n,0.05)&quot;</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-125-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-125-1.png" width="60%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdimportant">
 <p>Tornant a l’IC 95% per a <span class="math inline">\(\mu\)</span> d’una variable normal donat per la fórmula
@@ -799,7 +799,7 @@ Per exemple, un altre cop amb <span class="math inline">\(n=40\)</span></p>
 <span class="kw">curve</span>(<span class="dv">3</span><span class="op">/</span>x,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="ot">NA</span>,<span class="dv">1</span>),<span class="dt">pch=</span><span class="kw">c</span>(<span class="dv">20</span>,<span class="ot">NA</span>),
        <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Clopper-Pearson&quot;</span>,<span class="st">&quot;Regla del 3&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-152-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-152-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>El gràfic següent mostra els valors <span class="math inline">\(3/n\)</span> i els extrems superiors dels IC 95% de Clopper-Pearson i de Wilson a partir d’una mostra de mida <span class="math inline">\(n\)</span> (<span class="math inline">\(n\geqslant 40\)</span> per als intervals de confiança de Wilson) amb 0 èxits:</p>
 <pre class="sourceCode r"><code class="sourceCode r">f=<span class="cf">function</span>(n){<span class="kw">binom.exact</span>(<span class="dv">0</span>,n)<span class="op">$</span>upper}
 <span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,f),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.5</span>,<span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Extrem superior&quot;</span>,
@@ -808,7 +808,7 @@ Per exemple, un altre cop amb <span class="math inline">\(n=40\)</span></p>
 <span class="kw">points</span>(<span class="dv">40</span><span class="op">:</span><span class="dv">100</span>,<span class="fl">3.84</span><span class="op">/</span>(<span class="dv">40</span><span class="op">:</span><span class="dv">100</span><span class="fl">+3.84</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.5</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="dv">1</span>),<span class="dt">pch=</span><span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="ot">NA</span>),
     <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Clopper-Pearson&quot;</span>,<span class="st">&quot;Wilson&quot;</span>,<span class="st">&quot;Regla del 3&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-153-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-153-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Els extrems superiors dels intervals de Clopper-Pearson i Wilson se superposen en aquest darrer gràfic.</p>
 
 <div class="example">
@@ -839,7 +839,7 @@ perquè aquest interval té la forma <span class="math inline">\(\widehat{p}_X\p
 <p>Fixau-vos que la funció <span class="math inline">\(y=p (1-p)\)</span>, amb <span class="math inline">\(p\in [0,1]\)</span>, és una paràbola còncava amb vèrtex al punt <span class="math inline">\(p=0.5\)</span></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(x<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>x),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">xlab=</span><span class="st">&quot;p&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)
 <span class="kw">abline</span>(<span class="dt">v=</span><span class="fl">0.5</span>,<span class="dt">lty=</span><span class="st">&quot;dashed&quot;</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-156-1.png" width="480" style="display: block; margin: auto;" />
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-156-1.png" width="60%" style="display: block; margin: auto;" />
 Per tant, el seu màxim s’assoleix a <span class="math inline">\(p=0.5\)</span>. Així, doncs
 <span class="math display">\[
 \widehat{p}_{X} (1-\widehat{p}_{X})\leqslant 0.5(1-0.5)=0.5^2\text{ per a tot $\widehat{p}_X\in[0,1]$}
@@ -961,7 +961,7 @@ Fixau-vos que aquest interval de confiança per <span class="math inline">\(\sig
 <span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(Temps),<span class="kw">sd</span>(Temps)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),
        <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-165-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-165-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>De totes formes, més endavant estudiarem tècniques per determinar (amb un cert nivell de confiança) si una mostra prové o no d’una variable normal.</p>
 <p>Continuem. Com que la variable que ens dóna el temps és (aproximadament) normal, podem emprar la fórmula per a l’IC 95% per a <span class="math inline">\(\sigma^2\)</span> anterior:
 <span class="math display">\[
