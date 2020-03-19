@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2020-03-08">
+<meta name="date" content="2020-03-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -230,6 +230,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#correlacio-de-spearman"><i class="fa fa-check"></i><b>8.3</b> Correlació de Spearman</a></li>
 <li class="chapter" data-level="8.4" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#contrastos-de-correlacio"><i class="fa fa-check"></i><b>8.4</b> Contrastos de correlació</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>9</b> ANOVA</a><ul>
+<li class="chapter" data-level="9.1" data-path="anova.html"><a href="anova.html#nocions-basiques"><i class="fa fa-check"></i><b>9.1</b> Nocions bàsiques</a></li>
+<li class="chapter" data-level="9.2" data-path="anova.html"><a href="anova.html#anova-d1-via"><i class="fa fa-check"></i><b>9.2</b> ANOVA d’1 via</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="anova.html"><a href="anova.html#contrast-basic"><i class="fa fa-check"></i><b>9.2.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.2.2" data-path="anova.html"><a href="anova.html#amb-r-2"><i class="fa fa-check"></i><b>9.2.2</b> Amb R</a></li>
+<li class="chapter" data-level="9.2.3" data-path="anova.html"><a href="anova.html#comparacions-posteriors-per-parelles"><i class="fa fa-check"></i><b>9.2.3</b> Comparacions posteriors per parelles</a></li>
+<li class="chapter" data-level="9.2.4" data-path="anova.html"><a href="anova.html#verificacio-de-les-condicions"><i class="fa fa-check"></i><b>9.2.4</b> Verificació de les condicions</a></li>
+<li class="chapter" data-level="9.2.5" data-path="anova.html"><a href="anova.html#test-no-parametric"><i class="fa fa-check"></i><b>9.2.5</b> Test no paramètric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="anova.html"><a href="anova.html#anova-de-blocs"><i class="fa fa-check"></i><b>9.3</b> ANOVA de blocs</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="anova.html"><a href="anova.html#contrast-basic-1"><i class="fa fa-check"></i><b>9.3.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.3.2" data-path="anova.html"><a href="anova.html#amb-r-3"><i class="fa fa-check"></i><b>9.3.2</b> Amb R</a></li>
+<li class="chapter" data-level="9.3.3" data-path="anova.html"><a href="anova.html#comparacions-posteriors-per-parelles-1"><i class="fa fa-check"></i><b>9.3.3</b> Comparacions posteriors per parelles</a></li>
+<li class="chapter" data-level="9.3.4" data-path="anova.html"><a href="anova.html#contrast-no-parametric"><i class="fa fa-check"></i><b>9.3.4</b> Contrast no paramètric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="anova.html"><a href="anova.html#anova-de-2-vies"><i class="fa fa-check"></i><b>9.4</b> ANOVA de 2 vies</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="anova.html"><a href="anova.html#contrast-basic-2"><i class="fa fa-check"></i><b>9.4.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.4.2" data-path="anova.html"><a href="anova.html#amb-r-4"><i class="fa fa-check"></i><b>9.4.2</b> Amb R</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -591,7 +611,7 @@ Vegem, si <span class="math inline">\(\overline{X_d}=98.42\)</span> i <span clas
 
 <p>Si, per exemple, haguéssim dibuixat abans del contrast un diagrama de caixes de les temperatures separades per sexe, hauríem vist que era impossible obtenir evidència que les dones tenen temperatura mitjana inferior als homes, i no hauria fet falta continuar.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(Temperature<span class="op">~</span>Gender,<span class="dt">data=</span>BT,<span class="dt">names=</span><span class="kw">c</span>(<span class="st">&quot;Dones&quot;</span>,<span class="st">&quot;Homes&quot;</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Temperatura&quot;</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-276-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-276-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p><strong>Exercici</strong>: Emprant les mateixes dades, trobau evidència que <span class="math inline">\(\mu_h&lt;\mu_d\)</span>? I que <span class="math inline">\(\mu_h\neq \mu_d\)</span>? Spoiler:</p>
 <p><img src="Bioestadistica-II_files/figure-html/tempcorp3.png" width="50%" style="display: block; margin: auto;" /></p>
 
@@ -1069,7 +1089,7 @@ amb <span class="math inline">\(\alpha=0.05\)</span></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(amnio, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(amnio), <span class="dt">sd=</span><span class="kw">sd</span>(amnio),
         <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
        <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-309-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-309-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Acceptarem que <span class="math inline">\(X\)</span> és normal.</p>
 <p><em>Estadístic de contrast</em>:
 <span class="math display">\[
@@ -1170,7 +1190,7 @@ Per aquest motiu a aquest contrast se li diu un <strong>test F</strong>.</p>
 <li><p>Amb R és <code>f</code></p></li>
 <li><p>No és simètrica, té cua a la dreta i per tant, com explicam d’aquí a una estona, els p-valors dels contrastos bilaterals es calculen com al test <span class="math inline">\(\chi^2\)</span> d’una variància. El gràfic següent mostra les gràfiques de les densitats de les distribucions <span class="math inline">\(F_{n,m}\)</span> per a <span class="math inline">\(n=3,4\)</span> i <span class="math inline">\(m=3,4,5\)</span>. Es pot observar a cada una d’elles una cua a la dreta ben marcada, i també hi podeu observar que les distribucions <span class="math inline">\(F_{3,4}\)</span> i <span class="math inline">\(F_{4,3}\)</span> tenen densitats diferents.</p></li>
 </ul>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-313-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-313-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Per tant, si diem <span class="math inline">\(F_0\)</span> al valor que pren l’estadístic <span class="math inline">\(F\)</span> sobre la nostra mostra</p>
 <ul>
 <li><p>Si <span class="math inline">\(H_{1}:\sigma_1^2&gt;\sigma_2^2\)</span>, el p-valor del contrast és <span class="math inline">\(P(F\geqslant F_0)\)</span></p></li>
