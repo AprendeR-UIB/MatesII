@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-02-21" />
+<meta name="date" content="2021-02-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -374,7 +374,7 @@ Maria
 castany
 </td>
 <td style="text-align:left;">
-5 o més
+6 o més
 </td>
 </tr>
 </tbody>
@@ -387,6 +387,11 @@ castany
 <li>Les dades de la columna “Cabell” són qualitatives.</li>
 <li>Les dades de la columna “Refrescs setmanals” són ordinals.</li>
 </ul>
+
+<div class="rmdnote">
+<p>Els valors de la variable “Refrescs setmanals” no són nombres, sinó franges de nombres, per la qual cosa no són dades quantitatives. Però certament estan ordenats: na Marta en beu més que en Xavier. Per tant són dades ordinals.</p>
+<p>Si en lloc de donar com a valors les franges, donàssim el nombre de refrescos (0,1,2,3,4,5,6,…) sí que serien dades quantitatives, en aquest cas discretes.</p>
+</div>
 <p>L’anàlisi, tant descriptiva com inferencial, d’un conjunt de dades és diferent segons el seu tipus. Així, per a dades qualitatives només té interès estudiar i representar les freqüències amb què apareixen els seus diferents valors, mentre que l’anàlisi de dades quantitatives sol involucrar el càlcul de mesures estadístiques, com ara la mitjana o la desviació típica, que expressin numèricament les seves propietats.</p>
 <p>Dos punts rellevants a tenir en compte:</p>
 <ul>
@@ -463,7 +468,7 @@ que assigna a cada subjecte de <span class="math inline">\(\Omega\)</span> un no
 <div class="rmdrecordau">
 Procurau tenir sempre present que, per molta cura que posem en obtenir una mostra d’una població, sempre serà només una aproximació imperfecta d’aquesta.
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
 <img src="Bioestadistica-II_files/figure-html/sampling.png" alt="Població *versus* mostra" width="60%" />
 <p class="caption">
 Figura 1.1: Població <em>versus</em> mostra
@@ -480,7 +485,7 @@ Figura 1.1: Població <em>versus</em> mostra
 </div>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-13" class="example"><strong>Exemple 1.4  </strong></span>Una sèrie de 10 llançaments d’una moneda equilibrada concreta és una mostra de la població dels “possibles llançaments de monedes equilibrades”.</p>
+<p><span id="exm:unnamed-chunk-14" class="example"><strong>Exemple 1.4  </strong></span>Una sèrie de 10 llançaments d’una moneda equilibrada concreta és una mostra de la població dels “possibles llançaments de monedes equilibrades”.</p>
 </div>
 <p>Si podem mesurar tots els individus de la població, no ens fa falta emprar estadística inferencial per mirar d’endevinar el que volem saber sobre la població: ho mesuram sobre tothom i per avall. Però el més normal és que no poguem mesurar tots els individus de la població.</p>
 <ul>
@@ -491,7 +496,7 @@ Figura 1.1: Població <em>versus</em> mostra
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-14" class="example"><strong>Exemple 1.5  </strong></span>Vosaltres què sou: una població o una mostra? Doncs depèn:</p>
+<p><span id="exm:unnamed-chunk-15" class="example"><strong>Exemple 1.5  </strong></span>Vosaltres què sou: una població o una mostra? Doncs depèn:</p>
 <ul>
 <li><p>Sou una població quan el que interessa és saber qualque cosa sobre <strong>vosaltres</strong> i només vosaltres.</p></li>
 <li><p>Sou una mostra si a partir d’informació sobre vosaltres miram d’inferir informació sobre <strong>un grup més gran de subjectes</strong>: sobre els estudiants de primer curs de Biologia i Bioquímica d’Espanya, o sobre els estudiants de la UIB d’aquest curs, o sobre els joves europeus, o sobre els mamífers, o…</p></li>
@@ -513,7 +518,7 @@ Figura 1.1: Població <em>versus</em> mostra
 <ul>
 <li>S’eviten preferències en l’elecció, per la qual cosa esperam que la mostra sigui representativa de la població. Naturalment, això no està garantit: per pura mala sort ens pot sortir una mostra súper rara, és el que té l’atzar. Però almanco hem fet “el que tothom considera que és el que toca” per intentar que sigui representativa.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
 <img src="Bioestadistica-II_files/figure-html/randomgen.png" alt=" http://dilbert.com/strip/2001-10-25" width="80%" />
 <p class="caption">
 Figura 1.2:  <a href="http://dilbert.com/strip/2001-10-25" class="uri">http://dilbert.com/strip/2001-10-25</a>
@@ -524,7 +529,7 @@ Figura 1.2:  <a href="http://dilbert.com/strip/2001-10-25" class="uri">http://di
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-17" class="example"><strong>Exemple 1.6  </strong></span>Per tastar el brou, abans de prendre’n una cullerada el remenam bé. D’aquesta manera esperam que les molècules del brou s’organitzin de manera aleatòria dins l’olla i que la cullerada que en prenguem sigui representativa del brou.</p>
+<p><span id="exm:unnamed-chunk-18" class="example"><strong>Exemple 1.6  </strong></span>Per tastar el brou, abans de prendre’n una cullerada el remenam bé. D’aquesta manera esperam que les molècules del brou s’organitzin de manera aleatòria dins l’olla i que la cullerada que en prenguem sigui representativa del brou.</p>
 </div>
 <p>Específicament, el <strong>mostreig aleatori</strong> consisteix a seleccionar una mostra de la població de manera que totes les mostres de la mateixa mida siguin <strong>equiprobables</strong>; és a dir, que si fixam el nombre de subjectes de la mostra, tots els conjunts d’aquest nombre de subjectes tenguin la mateixa probabilitat de ser seleccionats.</p>
 <p>Hi ha dos tipus bàsics de mostreig aleatori que hem de distingir: <strong>amb</strong> i <strong>sense reposició</strong>. Per fixar idees, suposem que disposam d’una població de la qual volem extreure una mostra de mida <span class="math inline">\(n\)</span>.</p>
@@ -584,12 +589,12 @@ Emprau la funció <code>qbirthday</code> per trobar el nombre mínim d’estudia
 <span id="cb11-2"><a href="chap-conceptes.html#cb11-2" aria-hidden="true" tabindex="-1"></a>prob<span class="ot">=</span><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>,f,<span class="at">N=</span><span class="dv">12000</span>)</span>
 <span id="cb11-3"><a href="chap-conceptes.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>, prob, <span class="at">type=</span><span class="st">&quot;l&quot;</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">xlab=</span><span class="st">&quot;n&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;probabilitat&quot;</span>,</span>
 <span id="cb11-4"><a href="chap-conceptes.html#cb11-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxp=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>,<span class="dv">30</span>),<span class="at">yaxp=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">10</span>))</span></code></pre></div>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-26-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-27-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>El gràfic següent mostra la mida màxima <span class="math inline">\(n\)</span> d’una mostra aleatòria simple extreta d’una població de mida <span class="math inline">\(N\)</span> perquè la probabilitat de repeticions sigui menor que 0.01 (és a dir, perquè més del 99% de les mostres aleatòries simples tenguin tots els seus elements diferents), en funció de <span class="math inline">\(N\)</span>:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="chap-conceptes.html#cb12-1" aria-hidden="true" tabindex="-1"></a>fites<span class="ot">=</span><span class="fu">sapply</span>(<span class="dv">500</span><span class="sc">+</span><span class="dv">100</span><span class="sc">*</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">150</span>), qbirthday, <span class="at">prob=</span><span class="fl">0.01</span>)</span>
 <span id="cb12-2"><a href="chap-conceptes.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">500</span><span class="sc">+</span><span class="dv">100</span><span class="sc">*</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">150</span>), fites, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">xlab=</span><span class="st">&quot;N&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;n&quot;</span>, <span class="at">cex=</span><span class="fl">0.5</span>,</span>
 <span id="cb12-3"><a href="chap-conceptes.html#cb12-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxp=</span><span class="fu">c</span>(<span class="dv">500</span>,<span class="dv">15500</span>,<span class="dv">30</span>),<span class="at">yaxp=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">20</span>))</span></code></pre></div>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-27-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-28-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Així doncs, si la mida de la població és molt gran en relació a la de la mostra, és molt probable que els elements d’una mostra aleatòria simple siguin tots diferents. Això implica que, quan la població és molt gran en relació a la mostra, els mostrejos aleatoris amb i sense reposició són (aproximadament) equivalents en el sentit següent:</p>
 <blockquote>
 <p>Si la població és molt, molt gran, un mostreig amb reposició donaria gairebé segur una mostra amb tots els seus elements diferents. Per tant, podem prendre directament la mostra sense reposició i suposar que permetíem repeticions, però que no n’hi ha hagut, i que per tant la mostra és simple.</p>
@@ -601,7 +606,7 @@ Emprau la funció <code>qbirthday</code> per trobar el nombre mínim d’estudia
 <p>A més, si la mida de la població és molt més gran que <span class="math inline">\(n\)</span>, quan construïu una mostra aleatòria de mida <span class="math inline">\(n\)</span> escollint els individus un a un a l’atzar sense repeticions, la probabilitat a cada moment d’escollir un individu concret dels que quedin és gairebé la mateixa que si permetéssiu repeticions.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-28" class="example"><strong>Exemple 1.8  </strong></span>Imaginau que teniu una població de 10<sup>6</sup> individus i en voleu extreure una mostra aleatòria de 10. Llavors, per exemple, quan ja portau 9 individus escollits, la probabilitat de triar un individu concret dels que queden és <span class="math inline">\(1/999991=10^{-6}+9·10^{-12}\)</span>, mentre que si permeteu que surti qualcun dels ja escollits aquesta probabilitat és <span class="math inline">\(1/10^6=10^{-6}\)</span>.</p>
+<p><span id="exm:unnamed-chunk-29" class="example"><strong>Exemple 1.8  </strong></span>Imaginau que teniu una població de 10<sup>6</sup> individus i en voleu extreure una mostra aleatòria de 10. Llavors, per exemple, quan ja portau 9 individus escollits, la probabilitat de triar un individu concret dels que queden és <span class="math inline">\(1/999991=10^{-6}+9·10^{-12}\)</span>, mentre que si permeteu que surti qualcun dels ja escollits aquesta probabilitat és <span class="math inline">\(1/10^6=10^{-6}\)</span>.</p>
 </div>
 <p>En resum:</p>
 
@@ -641,9 +646,9 @@ Gairebé mai és factible efectuar un mostreig aleatori. El motiu és que, per p
 <p>Les tècniques d’estadística inferencial <strong>no es poden aplicar a mostres no aleatòries</strong>. Però normalment només podem aconseguir mostres de conveniència. En aquest cas, el que s’ha de fer és descriure detalladament les característiques de la mostra per justificar que, malgrat no ser aleatòria, és raonablement representativa de la població i podria passar per aleatòria.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-32" class="example"><strong>Exemple 1.9  </strong></span>No perquè sigui oportunista una mostra deixa forçosament de ser vàlida. El nostre exemple preferit és el que podríem titular <em>El cas d’Abraham Wald i els forats que faltaven</em>.</p>
+<p><span id="exm:unnamed-chunk-33" class="example"><strong>Exemple 1.9  </strong></span>No perquè sigui oportunista una mostra deixa forçosament de ser vàlida. El nostre exemple preferit és el que podríem titular <em>El cas d’Abraham Wald i els forats que faltaven</em>.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
 <img src="Bioestadistica-II_files/figure-html/wald.png" alt="Abraham Wald." width="40%" />
 <p class="caption">
 Figura 1.3: Abraham Wald.
