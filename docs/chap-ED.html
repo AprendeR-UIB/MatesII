@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-03-21" />
+<meta name="date" content="2021-04-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -323,7 +323,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Una <strong>realització</strong> de <span class="math inline">\(\underline{X}\)</span> és un vector <span class="math inline">\((x_1,\ldots,x_p)\)</span> format pels valors de <span class="math inline">\(X_1,\ldots,X_p\)</span> sobre un individu. Una <strong>mostra</strong> de <span class="math inline">\(\underline{X}\)</span> és un conjunt de realitzacions. Usualment, organitzam una mostra de <span class="math inline">\(\underline{X}\)</span> per mitjà d’una taula de dades amb les columnes definides per les variables <span class="math inline">\(X_1,\ldots,X_p\)</span> i on cada filera és una realització d’aquestes variables, és a dir, un vector format pels valors de <span class="math inline">\(X_1,\ldots,X_p\)</span> sobre un individu de la mostra.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-570" class="example"><strong>Exemple 9.1  </strong></span>Si diem <span class="math inline">\(\textit{BMI}\)</span> a la variable aleatòria que dóna l’Índex de Massa Corporal (BMI) d’una persona, <span class="math inline">\(C\)</span> a la variable aleatòria que dóna el nivell de colesterol en mg/dl d’una persona i <span class="math inline">\(E\)</span> a la variable aleatòria que dóna l’edat d’una persona en anys, llavors
+<span id="exm:unnamed-chunk-574" class="example"><strong>Exemple 9.1  </strong></span>Si diem <span class="math inline">\(\textit{BMI}\)</span> a la variable aleatòria que dóna l’Índex de Massa Corporal (BMI) d’una persona, <span class="math inline">\(C\)</span> a la variable aleatòria que dóna el nivell de colesterol en mg/dl d’una persona i <span class="math inline">\(E\)</span> a la variable aleatòria que dóna l’edat d’una persona en anys, llavors
 <span class="math display">\[
 \underline{X}=(\textit{BMI},C,E)
 \]</span>
@@ -460,7 +460,7 @@ E(XY)-\mu_X\mu_Y-\mu_Y\mu_X+\mu_X\mu_Y
 <li><p>Quan <span class="math inline">\(X\)</span> és més petit en un individu 1 que en un individu 2, <span class="math inline">\(Y\)</span> tendeix a també ser més petit en l’individu 1 que en l’individu 2</p></li>
 </ul></li>
 </ul>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-573-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-577-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p><span class="math inline">\(\sigma_{X,Y}&lt;0\)</span> significa que</p>
 <ul>
@@ -468,11 +468,11 @@ E(XY)-\mu_X\mu_Y-\mu_Y\mu_X+\mu_X\mu_Y
 <li><p>Quan <span class="math inline">\(X\)</span> és més petit en un individu 1 que en un individu 2, <span class="math inline">\(Y\)</span> tendeix a ser més gran en l’individu 1 que en l’individu 2</p></li>
 </ul></li>
 </ul>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-574-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-578-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><span class="math inline">\(\sigma_{X,Y}=0\)</span> significa que no hi ha cap tendència en aquest sentit</li>
 </ul>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-575-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-579-1.png" width="50%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdimportant">
 <p>El signe de la covariància reflecteix la “tendència del creixement conjunt” de les variables:</p>
@@ -613,14 +613,14 @@ Aquesta matriu és simètrica per la simetria de la correlació.</p>
 </blockquote>
 <p>La tendencia al creixement simultani de <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> es pot deure a una tercera variable que les faci créixer totes dues, o pot ser purament espúria.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-580"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-584"></span>
 <img src="http://imgs.xkcd.com/comics/correlation.png" alt="Correlació no implica causalitat (https://xkcd.com/552/ (CC-BY-NC 2.5))" width="80%" />
 <p class="caption">
 Figura 9.1: Correlació no implica causalitat (<a href="https://xkcd.com/552/" class="uri">https://xkcd.com/552/</a> (CC-BY-NC 2.5))
 </p>
 </div>
 <p>O millor:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-581"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-585"></span>
 <img src="Bioestadistica-II_files/figure-html/Dilbertcorr.png" alt="Correlació no implica causalitat, segons Dilbert" width="80%" />
 <p class="caption">
 Figura 9.2: Correlació no implica causalitat, segons Dilbert
@@ -634,7 +634,7 @@ Si entrau a la pàgina web <a href="https://tylervigen.com/spurious-correlations
 <p>Hi ha un exemple de correlació negativa que és important tenir present per no deixar-se enganar.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-584" class="theorem"><strong>Teorema 9.1  </strong></span>Si <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> són dues còpies independents d’una mateixa variable aleatòria <span class="math inline">\(X\)</span>,
+<span id="thm:unnamed-chunk-588" class="theorem"><strong>Teorema 9.1  </strong></span>Si <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> són dues còpies independents d’una mateixa variable aleatòria <span class="math inline">\(X\)</span>,
 <span class="math display">\[
 \rho_{X_1,X_2-X_1}=-\frac{1}{\sqrt{2}}\approx -0.71
 \]</span>
@@ -677,7 +677,7 @@ Combinant-ho:
 </div>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-586" class="example"><strong>Exemple 9.3  </strong></span>Com a exemple, generarem una mostra <span class="math inline">\(X\)</span> de 101 “notes” aleatòries entre 0 i 100 amb distribució binomial <span class="math inline">\(B(100,0.5)\)</span>. Prendrem com a <span class="math inline">\(X_1\)</span> el vector de les primeres 100 notes,
+<p><span id="exm:unnamed-chunk-590" class="example"><strong>Exemple 9.3  </strong></span>Com a exemple, generarem una mostra <span class="math inline">\(X\)</span> de 101 “notes” aleatòries entre 0 i 100 amb distribució binomial <span class="math inline">\(B(100,0.5)\)</span>. Prendrem com a <span class="math inline">\(X_1\)</span> el vector de les primeres 100 notes,
 <span class="math display">\[
 X_1=(x_1,x_2,\ldots,x_{100})
 \]</span>
@@ -687,15 +687,15 @@ X_2-X_1=(x_2-x_1,x_3-x_2,\ldots,x_{101}-x_{100}).
 \]</span>
 Calcularem la correlació entre <span class="math inline">\(X_1\)</span> i <span class="math inline">\(X_2-X_1\)</span>, i ho il·lustrarem amb un gràfic.</p>
 </div>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="chap-ED.html#cb435-1" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">rbinom</span>(<span class="dv">101</span>,<span class="dv">100</span>,<span class="fl">0.5</span>)</span>
-<span id="cb435-2"><a href="chap-ED.html#cb435-2" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">=</span>X[<span class="sc">-</span><span class="dv">101</span>]</span>
-<span id="cb435-3"><a href="chap-ED.html#cb435-3" aria-hidden="true" tabindex="-1"></a>X2.menys.X1<span class="ot">=</span><span class="fu">diff</span>(X)</span>
-<span id="cb435-4"><a href="chap-ED.html#cb435-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(X1,X2.menys.X1,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">xlab=</span><span class="fu">expression</span>(X[<span class="dv">1</span>]),<span class="at">ylab=</span><span class="fu">expression</span>(X[<span class="dv">2</span>]<span class="sc">-</span>X[<span class="dv">1</span>]))</span>
-<span id="cb435-5"><a href="chap-ED.html#cb435-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(X1,X2.menys.X1)</span></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="chap-ED.html#cb441-1" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">rbinom</span>(<span class="dv">101</span>,<span class="dv">100</span>,<span class="fl">0.5</span>)</span>
+<span id="cb441-2"><a href="chap-ED.html#cb441-2" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">=</span>X[<span class="sc">-</span><span class="dv">101</span>]</span>
+<span id="cb441-3"><a href="chap-ED.html#cb441-3" aria-hidden="true" tabindex="-1"></a>X2.menys.X1<span class="ot">=</span><span class="fu">diff</span>(X)</span>
+<span id="cb441-4"><a href="chap-ED.html#cb441-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(X1,X2.menys.X1,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">xlab=</span><span class="fu">expression</span>(X[<span class="dv">1</span>]),<span class="at">ylab=</span><span class="fu">expression</span>(X[<span class="dv">2</span>]<span class="sc">-</span>X[<span class="dv">1</span>]))</span>
+<span id="cb441-5"><a href="chap-ED.html#cb441-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(X1,X2.menys.X1)</span></code></pre></div>
 <pre><code>## [1] -0.7068097</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-588-1.png" width="50%" style="display: block; margin: auto;" />
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-592-1.png" width="50%" style="display: block; margin: auto;" />
 La correlació predita pel teorema anterior és</p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="chap-ED.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">2</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="chap-ED.html#cb443-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">2</span>) </span></code></pre></div>
 <pre><code>## [1] -0.7071068</code></pre>
 </div>
 </div>
@@ -737,12 +737,12 @@ La covariància de dos vectors només té sentit quan aquests vectors represente
 <div class="example">
 <p><span id="exm:multex1" class="example"><strong>Exemple 9.4  </strong></span>Hem mesurat l’índex de massa corporal, BMI, i el nivell de colesterol en 5 individus sans. Guardam els resultats en un <em>dataframe</em> i en calculam les mitjanes:</p>
 </div>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="chap-ED.html#cb439-1" aria-hidden="true" tabindex="-1"></a>BMI<span class="ot">=</span> <span class="fu">c</span>(<span class="fl">18.3</span>,<span class="fl">24.4</span>,<span class="fl">24.6</span>,<span class="fl">24.4</span>,<span class="fl">22.2</span>,<span class="fl">19.5</span>)</span>
-<span id="cb439-2"><a href="chap-ED.html#cb439-2" aria-hidden="true" tabindex="-1"></a>Chol<span class="ot">=</span><span class="fu">c</span>(<span class="dv">170</span>,<span class="dv">202</span>,<span class="dv">215</span>,<span class="dv">218</span>,<span class="dv">210</span>,<span class="dv">210</span>)</span>
-<span id="cb439-3"><a href="chap-ED.html#cb439-3" aria-hidden="true" tabindex="-1"></a>DF<span class="ot">=</span><span class="fu">data.frame</span>(BMI,Chol)</span>
-<span id="cb439-4"><a href="chap-ED.html#cb439-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(BMI)</span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="chap-ED.html#cb445-1" aria-hidden="true" tabindex="-1"></a>BMI<span class="ot">=</span> <span class="fu">c</span>(<span class="fl">18.3</span>,<span class="fl">24.4</span>,<span class="fl">24.6</span>,<span class="fl">24.4</span>,<span class="fl">22.2</span>,<span class="fl">19.5</span>)</span>
+<span id="cb445-2"><a href="chap-ED.html#cb445-2" aria-hidden="true" tabindex="-1"></a>Chol<span class="ot">=</span><span class="fu">c</span>(<span class="dv">170</span>,<span class="dv">202</span>,<span class="dv">215</span>,<span class="dv">218</span>,<span class="dv">210</span>,<span class="dv">210</span>)</span>
+<span id="cb445-3"><a href="chap-ED.html#cb445-3" aria-hidden="true" tabindex="-1"></a>DF<span class="ot">=</span><span class="fu">data.frame</span>(BMI,Chol)</span>
+<span id="cb445-4"><a href="chap-ED.html#cb445-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(BMI)</span></code></pre></div>
 <pre><code>## [1] 22.23333</code></pre>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="chap-ED.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Chol)</span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="chap-ED.html#cb447-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Chol)</span></code></pre></div>
 <pre><code>## [1] 204.1667</code></pre>
 <p>Aleshores la covariància mostral d’aquests dos vectors és
 <span class="math display">\[
@@ -761,11 +761,11 @@ La covariància de dos vectors només té sentit quan aquests vectors represente
 \end{array}
 \]</span></p>
 <p>La covariància <strong>mostral</strong> de dos vectors numèrics de la mateixa longitud <span class="math inline">\(n\)</span> es calcula amb R amb la funció <code>cov</code>.</p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="chap-ED.html#cb443-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(BMI,Chol)</span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="chap-ED.html#cb449-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(BMI,Chol)</span></code></pre></div>
 <pre><code>## [1] 33.83333</code></pre>
 <p>Per obtenir la seva covariància <em>a seques</em>, cal multiplicar el resultat de <code>cov</code> per <span class="math inline">\((n-1)/n\)</span>.</p>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="chap-ED.html#cb445-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">length</span>(BMI)</span>
-<span id="cb445-2"><a href="chap-ED.html#cb445-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(BMI,Chol)<span class="sc">*</span>(n<span class="dv">-1</span>)<span class="sc">/</span>n</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="chap-ED.html#cb451-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">length</span>(BMI)</span>
+<span id="cb451-2"><a href="chap-ED.html#cb451-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(BMI,Chol)<span class="sc">*</span>(n<span class="dv">-1</span>)<span class="sc">/</span>n</span></code></pre></div>
 <pre><code>## [1] 28.19444</code></pre>
 <p>Considerem una taula de dades quantitatives de la forma
 <span class="math display">\[
@@ -804,8 +804,8 @@ Totes dues són simètriques.</p>
 <div class="example">
 <p><span id="exm:multex2" class="example"><strong>Exemple 9.5  </strong></span>Afegirem a les dades de l’Exemple <a href="chap-ED.html#exm:multex1">9.4</a> una tercera variable amb les edats dels 6 individus.</p>
 </div>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="chap-ED.html#cb447-1" aria-hidden="true" tabindex="-1"></a>DF<span class="sc">$</span>Edats<span class="ot">=</span><span class="fu">c</span>(<span class="dv">49</span>,<span class="dv">39</span>,<span class="dv">50</span>,<span class="dv">44</span>,<span class="dv">40</span>,<span class="dv">36</span>)</span>
-<span id="cb447-2"><a href="chap-ED.html#cb447-2" aria-hidden="true" tabindex="-1"></a>DF</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="chap-ED.html#cb453-1" aria-hidden="true" tabindex="-1"></a>DF<span class="sc">$</span>Edats<span class="ot">=</span><span class="fu">c</span>(<span class="dv">49</span>,<span class="dv">39</span>,<span class="dv">50</span>,<span class="dv">44</span>,<span class="dv">40</span>,<span class="dv">36</span>)</span>
+<span id="cb453-2"><a href="chap-ED.html#cb453-2" aria-hidden="true" tabindex="-1"></a>DF</span></code></pre></div>
 <pre><code>##    BMI Chol Edats
 ## 1 18.3  170    49
 ## 2 24.4  202    39
@@ -814,13 +814,13 @@ Totes dues són simètriques.</p>
 ## 5 22.2  210    40
 ## 6 19.5  210    36</code></pre>
 <p>La matriu de covariàncies mostrals d’aquesta taula és</p>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="chap-ED.html#cb449-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(DF)</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="chap-ED.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(DF)</span></code></pre></div>
 <pre><code>##             BMI      Chol  Edats
 ## BMI    7.586667  33.83333   1.14
 ## Chol  33.833333 309.76667 -33.00
 ## Edats  1.140000 -33.00000  32.00</code></pre>
 <p>Podreu observar que és simètrica, que l’entrada (2,1) coincideix amb la covariància de <code>BMI</code> i <code>Chol</code> que hem calculat abans, i que a la diagonal hi obtenim les variàncies mostrals de les variables de la taula:</p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="chap-ED.html#cb451-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(DF,<span class="at">MARGIN=</span><span class="dv">2</span>,<span class="at">FUN=</span>var)</span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="chap-ED.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(DF,<span class="at">MARGIN=</span><span class="dv">2</span>,<span class="at">FUN=</span>var)</span></code></pre></div>
 <pre><code>##        BMI       Chol      Edats 
 ##   7.586667 309.766667  32.000000</code></pre>
 </div>
@@ -841,11 +841,11 @@ R_{X,Y}=\frac{\widetilde{S}_{X,Y}}{\widetilde{S}_X\cdot \widetilde{S}_Y}=
 <div class="example">
 <p><span id="exm:multex1rev" class="example"><strong>Exemple 9.6  </strong></span>Tornem a la situació de l’Exemple <a href="chap-ED.html#exm:multex1">9.4</a>. La covariància mostral i les desviacions típiques mostrals dels vectors <code>BMI</code> i <code>Chol</code> són</p>
 </div>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="chap-ED.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(BMI,Chol)</span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="chap-ED.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(BMI,Chol)</span></code></pre></div>
 <pre><code>## [1] 33.83333</code></pre>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="chap-ED.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(BMI)</span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="chap-ED.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(BMI)</span></code></pre></div>
 <pre><code>## [1] 2.75439</code></pre>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="chap-ED.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(Chol)</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="chap-ED.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(Chol)</span></code></pre></div>
 <pre><code>## [1] 17.60019</code></pre>
 <p>i per tant la seva correlació de Pearson és
 <span class="math display">\[
@@ -868,24 +868,24 @@ R^2=R_{X,Y}^2
 Per tant, com més s’acosta la correlació de Pearson de <span class="math inline">\(x\)</span> i <span class="math inline">\(y\)</span> a 1 o a -1, més s’acosten els punts <span class="math inline">\((x_i,y_i)\)</span> a estar sobre una recta. El signe de <span class="math inline">\(R_{X,Y}\)</span> indica si aquesta recta és creixent (<span class="math inline">\(R_{X,Y}&gt;0\)</span>) o decreixent (<span class="math inline">\(R_{X,Y}&lt;0\)</span>).
 </div>
 <p>Amb R, la correlació de Pearson de dos vectors es pot calcular amb la funció <code>cor</code>. Per exemple, la correlació del Pearson dels vectors <code>BMI</code> i <code>Chol</code> s’obté amb</p>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="chap-ED.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(BMI,Chol)</span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="chap-ED.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(BMI,Chol)</span></code></pre></div>
 <pre><code>## [1] 0.6979141</code></pre>
 <p>Vegem que el seu quadrat és igual al <span class="math inline">\(R^2\)</span> de la regressió lineal de <code>Chol</code> en funció de <code>BMI</code>:</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="chap-ED.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(BMI,Chol)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="chap-ED.html#cb467-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(BMI,Chol)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 0.487084</code></pre>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="chap-ED.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Chol<span class="sc">~</span>BMI))<span class="sc">$</span>r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="chap-ED.html#cb469-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Chol<span class="sc">~</span>BMI))<span class="sc">$</span>r.squared</span></code></pre></div>
 <pre><code>## [1] 0.487084</code></pre>
 <p>Per fer-nos una idea de què representa aquest valor de la correlació, vegem el gràfic dels punts (BMI,Chol) amb la seva recta de regressió lineal:</p>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="chap-ED.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(BMI,Chol,<span class="at">pch=</span><span class="dv">20</span>)</span>
-<span id="cb465-2"><a href="chap-ED.html#cb465-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(Chol<span class="sc">~</span>BMI),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="fl">1.5</span>)</span></code></pre></div>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-601-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="chap-ED.html#cb471-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(BMI,Chol,<span class="at">pch=</span><span class="dv">20</span>)</span>
+<span id="cb471-2"><a href="chap-ED.html#cb471-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(Chol<span class="sc">~</span>BMI),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="fl">1.5</span>)</span></code></pre></div>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-605-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Hi podem observar com <code>Chol</code> tendeix a créixer quan <code>BMI</code> creix, però els punts (BMI,Chol) no tendeixen a estar sobre una recta.</p>
 
 <div class="rmdcaution">
 És convenient acompanyar un càlcul de correlació o covariància de dos vectors <span class="math inline">\(x,y\)</span> amb un gràfic dels punts <span class="math inline">\((x_i,y_i)\)</span>, perquè conjunts molt diferents de punts poden donar lloc a la mateixa correlació.
 </div>
 <p>Un exemple clàssic d’aquest fet són els quatre conjunts de dades <span class="math inline">\((x_{1,i},y_{1,i})_{i=1,\ldots,11}\)</span>, <span class="math inline">\((x_{2,i},y_{2,i})_{i=1,\ldots,11}\)</span>, <span class="math inline">\((x_{3,i},y_{3,i})_{i=1,\ldots,11}\)</span>, <span class="math inline">\((x_{4,i},y_{4,i})_{i=1,\ldots,11}\)</span> que formen el <em>dataframe</em> <code>anscombe</code> de R:</p>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="chap-ED.html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(anscombe)</span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="chap-ED.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(anscombe)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:	11 obs. of  8 variables:
 ##  $ x1: num  10 8 13 9 11 14 6 4 12 7 ...
 ##  $ x2: num  10 8 13 9 11 14 6 4 12 7 ...
@@ -896,44 +896,44 @@ Per tant, com més s’acosta la correlació de Pearson de <span class="math inl
 ##  $ y3: num  7.46 6.77 12.74 7.11 7.81 ...
 ##  $ y4: num  6.58 5.76 7.71 8.84 8.47 7.04 5.25 12.5 5.56 7.91 ...</code></pre>
 <p>Les correlacions dels quatre parells de vectors són molt semblants:</p>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="chap-ED.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x1,anscombe<span class="sc">$</span>y1)</span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="chap-ED.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x1,anscombe<span class="sc">$</span>y1)</span></code></pre></div>
 <pre><code>## [1] 0.8164205</code></pre>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="chap-ED.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x2,anscombe<span class="sc">$</span>y2)</span></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="chap-ED.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x2,anscombe<span class="sc">$</span>y2)</span></code></pre></div>
 <pre><code>## [1] 0.8162365</code></pre>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="chap-ED.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x3,anscombe<span class="sc">$</span>y3)</span></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="chap-ED.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x3,anscombe<span class="sc">$</span>y3)</span></code></pre></div>
 <pre><code>## [1] 0.8162867</code></pre>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="chap-ED.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x4,anscombe<span class="sc">$</span>y4)</span></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="chap-ED.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x4,anscombe<span class="sc">$</span>y4)</span></code></pre></div>
 <pre><code>## [1] 0.8165214</code></pre>
 <p>Però si els dibuixam veureu que els quatre conjunts de punts són molt diferents:</p>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="chap-ED.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb476-2"><a href="chap-ED.html#cb476-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x1,anscombe<span class="sc">$</span>y1,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">main=</span><span class="st">&quot;Conjunt de dades 1&quot;</span>,<span class="at">cex=</span><span class="fl">1.25</span>)</span>
-<span id="cb476-3"><a href="chap-ED.html#cb476-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y1<span class="sc">~</span>x1,<span class="at">data=</span>anscombe),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="fl">1.5</span>)</span>
-<span id="cb476-4"><a href="chap-ED.html#cb476-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x2,anscombe<span class="sc">$</span>y2,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">main=</span><span class="st">&quot;Conjunt de dades 2&quot;</span>,<span class="at">cex=</span><span class="fl">1.25</span>)</span>
-<span id="cb476-5"><a href="chap-ED.html#cb476-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y2<span class="sc">~</span>x2,<span class="at">data=</span>anscombe),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="fl">1.5</span>)</span>
-<span id="cb476-6"><a href="chap-ED.html#cb476-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x3,anscombe<span class="sc">$</span>y3,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">main=</span><span class="st">&quot;Conjunt de dades 3&quot;</span>,<span class="at">cex=</span><span class="fl">1.25</span>)</span>
-<span id="cb476-7"><a href="chap-ED.html#cb476-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y3<span class="sc">~</span>x3,<span class="at">data=</span>anscombe),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="fl">1.5</span>)</span>
-<span id="cb476-8"><a href="chap-ED.html#cb476-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x4,anscombe<span class="sc">$</span>y4,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">main=</span><span class="st">&quot;Conjunt de dades 4&quot;</span>,<span class="at">cex=</span><span class="fl">1.25</span>)</span>
-<span id="cb476-9"><a href="chap-ED.html#cb476-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y4<span class="sc">~</span>x4,<span class="at">data=</span>anscombe),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="fl">1.5</span>)</span>
-<span id="cb476-10"><a href="chap-ED.html#cb476-10" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-605-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="chap-ED.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb482-2"><a href="chap-ED.html#cb482-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x1,anscombe<span class="sc">$</span>y1,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">main=</span><span class="st">&quot;Conjunt de dades 1&quot;</span>,<span class="at">cex=</span><span class="fl">1.25</span>)</span>
+<span id="cb482-3"><a href="chap-ED.html#cb482-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y1<span class="sc">~</span>x1,<span class="at">data=</span>anscombe),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb482-4"><a href="chap-ED.html#cb482-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x2,anscombe<span class="sc">$</span>y2,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">main=</span><span class="st">&quot;Conjunt de dades 2&quot;</span>,<span class="at">cex=</span><span class="fl">1.25</span>)</span>
+<span id="cb482-5"><a href="chap-ED.html#cb482-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y2<span class="sc">~</span>x2,<span class="at">data=</span>anscombe),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb482-6"><a href="chap-ED.html#cb482-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x3,anscombe<span class="sc">$</span>y3,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">main=</span><span class="st">&quot;Conjunt de dades 3&quot;</span>,<span class="at">cex=</span><span class="fl">1.25</span>)</span>
+<span id="cb482-7"><a href="chap-ED.html#cb482-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y3<span class="sc">~</span>x3,<span class="at">data=</span>anscombe),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb482-8"><a href="chap-ED.html#cb482-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x4,anscombe<span class="sc">$</span>y4,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">main=</span><span class="st">&quot;Conjunt de dades 4&quot;</span>,<span class="at">cex=</span><span class="fl">1.25</span>)</span>
+<span id="cb482-9"><a href="chap-ED.html#cb482-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y4<span class="sc">~</span>x4,<span class="at">data=</span>anscombe),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb482-10"><a href="chap-ED.html#cb482-10" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-609-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Exemples més espectaculars es poden obtenir amb les funcions del paquet <strong>datasaurus</strong>, que permeten crear conjunts de punts de “formes” diferents i mateixos estadístics, i en particular la mateixa correlació. Emprant aquest paquet, hem creat dos parells de vectors de dades <code>dino</code> i <code>star</code>, que hem recollit a la taula de dades <a href="https://raw.githubusercontent.com/AprendeR-UIB/MatesII/master/Dades/Datasaurus.txt">https://raw.githubusercontent.com/AprendeR-UIB/MatesII/master/Dades/Datasaurus.txt</a>. Aquesta taula de dades té tres variables: una variable <code>dataset</code> que indica el conjunt de dades, i les variables <code>x</code> i <code>y</code> que donen les coordenades dels punts que formen cada conjunt de dades. Comprovarem que els dos parells de vectors de dades el mateix coeficient de correlació (almenys fins a la setena xifra decimal) i els dibuixarem.</p>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="chap-ED.html#cb477-1" aria-hidden="true" tabindex="-1"></a>datasaure<span class="ot">=</span><span class="fu">read.table</span>(<span class="st">&quot;https://raw.githubusercontent.com/AprendeR-UIB/MatesII/master/Dades/Datasaurus.txt&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb477-2"><a href="chap-ED.html#cb477-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datasaure)</span></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="chap-ED.html#cb483-1" aria-hidden="true" tabindex="-1"></a>datasaure<span class="ot">=</span><span class="fu">read.table</span>(<span class="st">&quot;https://raw.githubusercontent.com/AprendeR-UIB/MatesII/master/Dades/Datasaurus.txt&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb483-2"><a href="chap-ED.html#cb483-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datasaure)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:	284 obs. of  3 variables:
 ##  $ dataset: chr  &quot;dino&quot; &quot;dino&quot; &quot;dino&quot; &quot;dino&quot; ...
 ##  $ x      : num  55.4 51.5 46.2 42.8 40.8 ...
 ##  $ y      : num  97.2 96 94.5 91.4 88.3 ...</code></pre>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="chap-ED.html#cb479-1" aria-hidden="true" tabindex="-1"></a>dino<span class="ot">=</span>datasaure[datasaure<span class="sc">$</span>dataset<span class="sc">==</span><span class="st">&quot;dino&quot;</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span>
-<span id="cb479-2"><a href="chap-ED.html#cb479-2" aria-hidden="true" tabindex="-1"></a>star<span class="ot">=</span>datasaure[datasaure<span class="sc">$</span>dataset<span class="sc">==</span><span class="st">&quot;star&quot;</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span>
-<span id="cb479-3"><a href="chap-ED.html#cb479-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(dino<span class="sc">$</span>x,dino<span class="sc">$</span>y)</span></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="chap-ED.html#cb485-1" aria-hidden="true" tabindex="-1"></a>dino<span class="ot">=</span>datasaure[datasaure<span class="sc">$</span>dataset<span class="sc">==</span><span class="st">&quot;dino&quot;</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb485-2"><a href="chap-ED.html#cb485-2" aria-hidden="true" tabindex="-1"></a>star<span class="ot">=</span>datasaure[datasaure<span class="sc">$</span>dataset<span class="sc">==</span><span class="st">&quot;star&quot;</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb485-3"><a href="chap-ED.html#cb485-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(dino<span class="sc">$</span>x,dino<span class="sc">$</span>y)</span></code></pre></div>
 <pre><code>## [1] -0.0629611</code></pre>
-<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="chap-ED.html#cb481-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(star<span class="sc">$</span>x,star<span class="sc">$</span>y)</span></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="chap-ED.html#cb487-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(star<span class="sc">$</span>x,star<span class="sc">$</span>y)</span></code></pre></div>
 <pre><code>## [1] -0.0629611</code></pre>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="chap-ED.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb483-2"><a href="chap-ED.html#cb483-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dino,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">cex=</span><span class="fl">1.25</span>)</span>
-<span id="cb483-3"><a href="chap-ED.html#cb483-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(star,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">cex=</span><span class="fl">1.25</span>)</span>
-<span id="cb483-4"><a href="chap-ED.html#cb483-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-607-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="chap-ED.html#cb489-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb489-2"><a href="chap-ED.html#cb489-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dino,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">cex=</span><span class="fl">1.25</span>)</span>
+<span id="cb489-3"><a href="chap-ED.html#cb489-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(star,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">cex=</span><span class="fl">1.25</span>)</span>
+<span id="cb489-4"><a href="chap-ED.html#cb489-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-611-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Suposem ara que tenim una taula de dades numèriques de la forma
 <span class="math display">\[
 \begin{array}{cccc}
@@ -955,7 +955,7 @@ R_{X_p,X_1} &amp; R_{X_p,X_2} &amp; \ldots &amp; 1
 \end{pmatrix}
 \]</span></p>
 <p>Aquesta matriu de correlacions es calcula amb la funció <code>cor</code> aplicada a la matriu o el <em>data frame</em> de variables numèriques que emmagatzema la taula de dades. Per exemple, la matriu de correlacions de Pearson de la taula de dades <code>DF</code> de l’Exemple <a href="chap-ED.html#exm:multex2">9.5</a> és</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="chap-ED.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(DF)</span></code></pre></div>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="chap-ED.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(DF)</span></code></pre></div>
 <pre><code>##              BMI       Chol       Edats
 ## BMI   1.00000000  0.6979141  0.07316517
 ## Chol  0.69791406  1.0000000 -0.33145274
@@ -1022,12 +1022,12 @@ x &amp; 4&amp; 5 &amp; 1 &amp; 5 &amp; 1 &amp; 3 &amp; 4 &amp; 4\\ \hline
 <div class="rmdnote">
 Per cert, amb R el vector de rangs es calcula amb la funció <code>rank</code>:
 </div>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="chap-ED.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rank</span>(<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="chap-ED.html#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rank</span>(<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>))</span></code></pre></div>
 <pre><code>## [1] 5.0 7.5 1.5 7.5 1.5 3.0 5.0 5.0</code></pre>
 <p>Amb R, la correlació de Spearman es calcula directament amb la funció <code>cor</code> entrant-li el paràmetre <code>method="spearman"</code>. (El valor per defecte del paràmetre <code>method</code> és <code>"pearson"</code> i per això no l’indicam quan calculam la correlació de Pearson.)</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-611" class="example"><strong>Exemple 9.7  </strong></span>Considerem els vectors <code>BMI</code> i <code>Chol</code> de l’Exemple <a href="chap-ED.html#exm:multex1">9.4</a>. El primer que farem serà calcular els seus vectors de rangs:</p>
+<p><span id="exm:unnamed-chunk-615" class="example"><strong>Exemple 9.7  </strong></span>Considerem els vectors <code>BMI</code> i <code>Chol</code> de l’Exemple <a href="chap-ED.html#exm:multex1">9.4</a>. El primer que farem serà calcular els seus vectors de rangs:</p>
 </div>
 <p><span class="math display">\[
 \begin{array}{|c|c||c|c|}
@@ -1051,9 +1051,9 @@ Per cert, amb R el vector de rangs es calcula amb la funció <code>rank</code>:
 (1, 4.5, 6, 4.5, 3, 2)\mbox{ i }(1, 2, 5, 6, 3.5, 3.5)
 \]</span></p>
 <p>Comprovem-ho:</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="chap-ED.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(BMI,Chol,<span class="at">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="chap-ED.html#cb494-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(BMI,Chol,<span class="at">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 0.6470588</code></pre>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="chap-ED.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">4.5</span>,<span class="dv">6</span>,<span class="fl">4.5</span>,<span class="dv">3</span>,<span class="dv">2</span>),<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="fl">3.5</span>,<span class="fl">3.5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="chap-ED.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">4.5</span>,<span class="dv">6</span>,<span class="fl">4.5</span>,<span class="dv">3</span>,<span class="dv">2</span>),<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="fl">3.5</span>,<span class="fl">3.5</span>))</span></code></pre></div>
 <pre><code>## [1] 0.6470588</code></pre>
 </div>
 <div id="contrastos-de-correlació" class="section level3" number="9.2.5">
@@ -1073,7 +1073,7 @@ Si en un contrast de correlació rebutjam la hipòtesi nul·la, en particular co
 <p>No explicarem com es fa a mà aquest contrast ni quines hipòtesis han de satisfer les variables poblacionals per que el resultat sigui fiable. Si estau interessats en el detall, podeu consultar la <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient#Testing_using_Student&#39;s_t-distribution">corresponent entrada de la Wikipedia</a>. Simplement heu de saber que s’efectua amb la funció <code>cor.test</code>. La seva sintaxi és similar a la de les altres funcions que efectuen contrastos.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-614" class="example"><strong>Exemple 9.8  </strong></span>Volem contrastar si hi ha correlació positiva entre el BMI i el nivell de colesterol d’un adult sa, amb un nivell de significació del 5%.</p>
+<p><span id="exm:unnamed-chunk-618" class="example"><strong>Exemple 9.8  </strong></span>Volem contrastar si hi ha correlació positiva entre el BMI i el nivell de colesterol d’un adult sa, amb un nivell de significació del 5%.</p>
 </div>
 <p><em>Variables poblacionals d’interès</em>:</p>
 <ul>
@@ -1089,7 +1089,7 @@ H_1: &amp; \rho_{\textit{BMI,Chol}}&gt;0
 \end{array}\right.
 \]</span></p>
 <p>Emprarem les mostres <code>BMI</code> i <code>Chol</code> de l’Exemple<a href="chap-ED.html#exm:multex1">9.4</a>.</p>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="chap-ED.html#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(BMI,Chol,<span class="at">alternative=</span><span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="chap-ED.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(BMI,Chol,<span class="at">alternative=</span><span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## 	Pearson&#39;s product-moment correlation
 ## 
@@ -1241,7 +1241,7 @@ Marcau totes les respostes correctes:</p>
 <li>0.26</li>
 <li>És impossible saber-ho sense conèixer les edats de les mares</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-617"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-621"></span>
 <img src="Bioestadistica-II_files/figure-html/test9.png" alt="Gràfics de dispersió de les preguntes (14) a (18)" width="100%" />
 <p class="caption">
 Figura 9.3: Gràfics de dispersió de les preguntes (14) a (18)

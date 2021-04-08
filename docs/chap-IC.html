@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-03-21" />
+<meta name="date" content="2021-04-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -649,7 +649,7 @@ on <span class="math inline">\(n=25\)</span>, <span class="math inline">\(\overl
 518\pm 13.65\Rightarrow
 [504.35,531.65]
 \]</span>
-Tenim, doncs, un 95% de confiança que el nombre mitjà de radiografies per cartutx està entre 504.35 i 531.65, i en particular que és més gran que 500.</p>
+Tenim, doncs, un 90% de confiança que el nombre mitjà de radiografies per cartutx està entre 504.35 i 531.65, i en particular que és més gran que 500.</p>
 
 <div class="example">
 <p><span id="exm:RXprint2" class="example"><strong>Exemple 4.6  </strong></span>A l’exemple anterior hem suposat que la variable aleatòria era normal. Què passaria si fos molt diferent d’una normal?</p>
@@ -1189,7 +1189,7 @@ L’interval per a la variància basat en la distribució <span class="math inli
 <ul>
 <li><p>Si <span class="math inline">\(X\)</span> és una variable definida sobre una població de mida <span class="math inline">\(N\)</span> i prenem una mostra aleatòria sense reposició de <span class="math inline">\(X\)</span>, amb mitjana <span class="math inline">\(\overline{X}\)</span> i desviació típica mostral <span class="math inline">\(\widetilde{S}_X\)</span>, i si <span class="math inline">\(X\)</span> és normal o si <span class="math inline">\(n\)</span> és gran, es recomana prendre com a interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(\mu_X\)</span>
 <span class="math display">\[
-\overline{X}\pm t_{n,(q+1)/2}\frac{\widetilde{S}_X}{\sqrt{n}}\sqrt{\frac{\vphantom{(}N-n}{N-1}}
+\overline{X}\pm t_{n-1,(q+1)/2}\frac{\widetilde{S}_X}{\sqrt{n}}\sqrt{\frac{\vphantom{(}N-n}{N-1}}
 \]</span></p></li>
 <li><p>Si <span class="math inline">\(X\)</span> és una variable de Bernoulli definida sobre una població de mida <span class="math inline">\(N\)</span> i prenem una mostra aleatòria sense reposició de <span class="math inline">\(X\)</span>, amb <span class="math inline">\(n\)</span> molt gran i nombres d’èxits i fracassos com a mínim 10, es recomana prendre com a interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(p_X\)</span>
 <span class="math display">\[
@@ -1212,7 +1212,7 @@ n\geqslant \frac{Nz_{(q+1)/2}^2}{4M_{max}^2(N-1)+z_{(q+1)/2}^2}
 \]</span>
 on <span class="math inline">\(\widehat{p}_{X}=557/727=0.766\)</span>, <span class="math inline">\(z_{(q+1)/2}=1.96\)</span>, <span class="math inline">\(n=727\)</span> i <span class="math inline">\(N=12000\)</span>: dóna
 <span class="math display">\[
-0.766\pm \sqrt{\frac{0.766(1-0.766)}{727}}\sqrt{\frac{\vphantom{(}12000-727}{12000-1}}\Rightarrow [0.751,0.781]
+0.766\pm 1.96\sqrt{\frac{0.766(1-0.766)}{727}}\sqrt{\frac{\vphantom{(}12000-727}{12000-1}}\Rightarrow [0.736,0.796]
 \]</span>
 Estimam amb un nivell de confiança del 95% que entre un 75.1 i un 78.1 dels estudiants de la UIB han comès plagi en algun treball.</p>
 
